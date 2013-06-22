@@ -9,10 +9,10 @@ class WatchmakersHill:
 
 class Veilgarden:
     _id = 6
-    class correspond_with_wry_functionary:
+    class correspond_with_wry_functionary: # 30 cryptic clues
         _id = 11831
         default = write = 4934
-    class demands_of_high_society:
+    class demands_of_high_society:  # 54 whispered secrets
         _id = 11826
         default = attend = 4932
 
