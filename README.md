@@ -1,4 +1,4 @@
-clayman
-=======
+clay man
+========
 
 an automated manservant
