@@ -5,6 +5,7 @@ from .common import *
 character = Gentleperson(_settings.AUTH_USER, _settings.AUTH_PASS)
 
 buffer = character.action_cap - 2
-print('buffer is: ' +str(buffer))
 
-grind_wines(character)
+print('actions before: ' +str(character.actions))
+grind_secrets(character)
+print('actions after: ' +str(character.actions))

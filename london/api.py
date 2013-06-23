@@ -21,6 +21,7 @@ class Gentleperson:
         html = self.game.post('/Map/Move', {'areaid': area.id})
         soup = bs4.BeautifulSoup(html)
 
+        self.location = area.id
         self._parse_branches(soup)
         print('Welcome to {0}, delicious friend!'.format(area.name))
 
@@ -48,15 +49,8 @@ class Gentleperson:
             branch = self.branches[branch]
 
         html = self.game.post('/Storylet/ChooseBranch', dict(branchid=branch, secondChances=second_chance))
-        print(html)
         soup = bs4.BeautifulSoup(html)
-
-        # XXX there can be more than one descriptive para, find a better way
-        effects = soup.find_all('p')
-        for tag in effects[1:]:
-            content = ''.join(tag.strings)
-            if not 'You succeeded' in content:
-                print('    {0}'.format(content))
+        self._parse_effects(soup)
 
     def choose_default_branch(self):
         if len(self.branches) != 1:
@@ -106,3 +100,17 @@ class Gentleperson:
                 title = tag.contents[3].contents[1].string.strip()
                 button = tag.contents[5].contents[1].contents[1]
                 self.storylets[title] = button['onclick'][11:][:-2]
+
+    def _parse_effects(self, soup):
+        update_script = soup.find_all('script')[1].string
+        match = re.search(r'setActionsLevel\((\d+)', update_script)
+        self.actions = int(match.groups(0)[0])
+
+        # XXX there can be more than one descriptive para, find a better way
+        effects = soup.find_all('p')
+        for tag in effects[1:]:
+            content = ''.join(tag.strings)
+            if not 'You succeeded' in content:
+                print('    {0}'.format(content))
+
+

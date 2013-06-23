@@ -17,6 +17,6 @@ def grind_secrets(character):
 def grind_clues(character):
     """+30 cryptic clues per action(0.60E)"""
     character.travel(areas.VEILGARDEN)
-    character.begin_story('The demands of high society')
-    character.choose_branch('Attend an event')
+    character.begin_story('Correspond with a contact at the Shuttered Palace')
+    character.choose_branch('Write a letter')
     character.onwards()
