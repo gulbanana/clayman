@@ -25,7 +25,7 @@ def grind_clues(character):
 
 character = Character(_settings.AUTH_USER, _settings.AUTH_PASS)
 
-buffer = character.action_cap - 8   # script is only called once per hour
+buffer = character.action_cap - 2
 while character.actions > buffer:
     if character.menaces['Scandal'].quantity < 7:
         grind_wines(character)
