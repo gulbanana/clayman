@@ -35,15 +35,16 @@ class Gentleperson:
         title = soup.h3.string.strip()
         print('"{0}"'.format(title))
 
-    def choose_branch(self, branch):
+    def choose_branch(self, branch, second_chance=False):
         if not isinstance(branch, numbers.Number):
             print('--> {0}'.format(branch))
             branch = self.branches[branch]
 
-        html = self.game.post('/Storylet/ChooseBranch', {'branchid': branch})
+        html = self.game.post('/Storylet/ChooseBranch', dict(branchid=branch, secondChances=second_chance))
         soup = bs4.BeautifulSoup(html)
-        effects = soup.find_all('p')
 
+        # XXX there can be more than one descriptive para, find a better way
+        effects = soup.find_all('p')
         for tag in effects[1:]:
             content = ''.join(tag.strings)
             if not 'You succeeded' in content:
@@ -58,15 +59,14 @@ class Gentleperson:
     def perhaps_not(self):
         html = self.game.post('/Storylet/GoBackFromStorylet', {})
         soup = bs4.BeautifulSoup(html)
-
         self._parse_branches(soup)
-        print('Perhaps not.')
+        print('--> Perhaps not.')
 
     def onwards(self):
         html = self.game.post('/Storylet/Available', {})
         soup = bs4.BeautifulSoup(html)
-
         self._parse_branches(soup)
+        print('--> Onwards!')
 
     def _update_status(self):
         html = self.game.get('/Gap/Load', dict(content='/Me'))
