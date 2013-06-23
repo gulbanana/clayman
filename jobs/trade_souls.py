@@ -1,6 +1,6 @@
-import london
+from london import *
 
-character = london.Gentleperson()
+character = Gentleperson()
 
-character.use_item(london.items.Soul)
-character.choose_branch(london.items.Soul.trade_50)
+character.use_item(items.Soul)
+character.choose_branch(items.Soul.trade_50)

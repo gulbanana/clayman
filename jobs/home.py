@@ -1,5 +1,5 @@
-import london
+from london import *
 
-character = london.Gentleperson()
-character.travel(london.areas.Lodgings)
+character = Gentleperson()
+character.travel(areas.Lodgings)
 print('Actions available: {0}/{1}'.format(character.actions, character.action_cap))
