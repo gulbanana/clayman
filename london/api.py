@@ -106,9 +106,8 @@ class Gentleperson:
         match = re.search(r'setActionsLevel\((\d+)', update_script)
         self.actions = int(match.groups(0)[0])
 
-        # XXX there can be more than one descriptive para, find a better way
-        effects = soup.find_all('p')
-        for tag in effects[1:]:
+        effects = soup.find('div', class_='quality_update_box').find_all('p')
+        for tag in effects:
             content = ''.join(tag.strings)
             if not 'You succeeded' in content:
                 print('    {0}'.format(content))
