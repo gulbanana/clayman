@@ -29,7 +29,7 @@ buffer = character.action_cap - 5
 while character.actions > buffer:
     if character.menaces['Scandal'] < 7:
         grind_wines(character)
-    elif character.items['Whispered Secret'].quantity < 80000:
+    elif character.items['Whispered Secret'] < 80000:
         grind_secrets(character)
     else:
         grind_clues(character)

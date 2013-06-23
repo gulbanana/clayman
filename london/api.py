@@ -33,7 +33,7 @@ class Character:
 
     def use_item(self, item):
         if not isinstance(item, Quality):
-            item = self.items[item]
+            item = self._items[item]
 
         html = self.game.post('/Storylet/UseQuality', {'qualityId': item.id})
         soup = bs4.BeautifulSoup(html)
@@ -130,6 +130,7 @@ class Character:
 
             self.menaces[name] = int(quantity)
 
+        self._items = dict()
         self.items = dict()
         equipment = inner_soup.find('div', id='inventory')
         possessions = inner_soup.find('div', class_='you_bottom_rhs')
@@ -143,6 +144,7 @@ class Character:
             match = re.search(r'infoBarQImage(\d+)', imagediv)
             id = match.group(1)
 
-            self.items[name] = Quality(id, name, quantity)
+            self._items[name] = Quality(id, name, quantity)
+            self.items[name] = quantity
 
         print('{0}: {1}.'.format(self.name, self.description))
