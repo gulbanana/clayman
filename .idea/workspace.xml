@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="af3f8334-ac7d-451d-8e65-c4a3149ba6db" name="Default" comment="">
+    <list default="true" id="af3f8334-ac7d-451d-8e65-c4a3149ba6db" name="Default" comment="mac workspace setup">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jobs/home.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/clayman.iml" afterPath="$PROJECT_DIR$/.idea/clayman.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="clayman.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="af3f8334-ac7d-451d-8e65-c4a3149ba6db" time="1371969531817" ignored="false" />
+    <file path="/Dummy.txt" changelist="af3f8334-ac7d-451d-8e65-c4a3149ba6db" time="1371970555436" ignored="false" />
     <file path="/main.py" changelist="af3f8334-ac7d-451d-8e65-c4a3149ba6db" time="1371922764018" ignored="false" />
     <file path="/london.py" changelist="af3f8334-ac7d-451d-8e65-c4a3149ba6db" time="1371910344726" ignored="false" />
     <file path="/__init__.py" changelist="af3f8334-ac7d-451d-8e65-c4a3149ba6db" time="1371914560301" ignored="false" />
@@ -27,7 +25,7 @@
     <file path="/.gitignore" changelist="af3f8334-ac7d-451d-8e65-c4a3149ba6db" time="1371922597603" ignored="false" />
     <file path="/fragment.py" changelist="af3f8334-ac7d-451d-8e65-c4a3149ba6db" time="1371924769495" ignored="false" />
     <file path="/secretsX6.py" changelist="af3f8334-ac7d-451d-8e65-c4a3149ba6db" time="1371925995082" ignored="false" />
-    <file path="/home.py" changelist="af3f8334-ac7d-451d-8e65-c4a3149ba6db" time="1371970320762" ignored="false" />
+    <file path="/home.py" changelist="af3f8334-ac7d-451d-8e65-c4a3149ba6db" time="1371970574310" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,19 +54,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="home.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="home.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/jobs/home.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="38" selection-start="83" selection-end="83" vertical-scroll-proportion="0.0">
+            <state line="3" column="61" selection-start="106" selection-end="106" vertical-scroll-proportion="0.094339624">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="areas.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="areas.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/london/areas.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="11" selection-start="27" selection-end="27" vertical-scroll-proportion="0.031446543">
+            <state line="1" column="11" selection-start="27" selection-end="27" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -117,8 +115,8 @@
         <option value="$PROJECT_DIR$/jobs/secretsX6.py" />
         <option value="$PROJECT_DIR$/london/items.py" />
         <option value="$PROJECT_DIR$/jobs/secrets.py" />
-        <option value="$PROJECT_DIR$/jobs/home.py" />
         <option value="$PROJECT_DIR$/london/areas.py" />
+        <option value="$PROJECT_DIR$/jobs/home.py" />
       </list>
     </option>
   </component>
@@ -358,18 +356,23 @@
       <created>1371928233641</created>
       <updated>1371928233641</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="mac workspace setup">
+      <created>1371970540161</created>
+      <updated>1371970540161</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1440" height="874" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32891247" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2497332" sideWeight="0.60155386" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25394547" sideWeight="0.6697613" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25394547" sideWeight="0.6697613" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.397878" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -379,7 +382,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32963374" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -427,7 +429,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="a tiny bit of doc" />
+    <option name="LAST_COMMIT_MESSAGE" value="mac workspace setup" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -445,6 +447,7 @@
     <MESSAGE value="Parse output and display results" />
     <MESSAGE value="new script" />
     <MESSAGE value="a tiny bit of doc" />
+    <MESSAGE value="mac workspace setup" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -550,16 +553,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/jobs/home.py">
+    <entry file="file://$PROJECT_DIR$/london/areas.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="38" selection-start="83" selection-end="83" vertical-scroll-proportion="0.0">
+        <state line="1" column="11" selection-start="27" selection-end="27" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/london/areas.py">
+    <entry file="file://$PROJECT_DIR$/jobs/home.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="11" selection-start="27" selection-end="27" vertical-scroll-proportion="0.031446543">
+        <state line="3" column="61" selection-start="106" selection-end="106" vertical-scroll-proportion="0.094339624">
           <folding />
         </state>
       </provider>
