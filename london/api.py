@@ -5,8 +5,9 @@ from . import site
 import _settings
 
 class Quality:
-    def __init__(self, id, quantity):
+    def __init__(self, id, name, quantity):
         self.id = id
+        self.name = name
         self.quantity = quantity
 
 class Character:
@@ -31,11 +32,14 @@ class Character:
         print('Welcome to {0}, delicious friend!'.format(area.name))
 
     def use_item(self, item):
-        html = self.game.post('/Storylet/UseQuality', {'qualityId': item._id})
+        if not isinstance(item, Quality):
+            item = self.items[item]
+
+        html = self.game.post('/Storylet/UseQuality', {'qualityId': item.id})
         soup = bs4.BeautifulSoup(html)
 
         self._parse_branches(soup)
-        print('Used {0}'.format(item.__name__))
+        print('Used {0}'.format(item.name))
 
     def begin_story(self, storylet):
         if not isinstance(storylet, numbers.Number):
@@ -130,8 +134,6 @@ class Character:
             match = re.search(r'infoBarQImage(\d+)', imagediv)
             id = match.group(1)
 
-            self.items[name] = Quality(id, quantity)
-
-
+            self.items[name] = Quality(id, name, quantity)
 
         print('{0}: {1}.'.format(self.name, self.description))
