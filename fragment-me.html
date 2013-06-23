@@ -1,0 +1,1049 @@
+<script language="javascript">
+    
+    if (typeof g == 'undefined') {
+        document.write("Redirecting...");
+        window.location = "/Gap/Load?content=%2fMe";
+    }
+    
+</script>
+<script type="text/javascript">
+    $(function () {
+        $("#journal").dialog({ width: 705, resizable: false, modal: false, autoOpen: false, position: 'top' });
+        $("#quality-chooser").dialog({ width: 705, resizable: false, modal: true, autoOpen: false, position: 'middle' });
+    })
+
+    function openJournal() {
+        $('#journal').dialog('open');
+        $('#journal').load('/Journal');
+    }
+
+
+        function swapYouFrames() {
+            
+            pic = $('#you_pic');
+            home = $('#you_home');
+            
+            picZIndex = pic.css('z-index');
+            homeZIndex = home.css('z-index');
+            picTop = pic.css('top');
+            homeTop = home.css('top');
+            picLeft = pic.css('left');
+            homeLeft = home.css('left');
+
+
+            pic.animate({
+                left: homeLeft,
+                top: homeTop
+            }, 500);
+
+
+            home.animate({
+            left: picLeft,
+            top: picTop
+        }, 500);
+
+
+        pic.css('z-index', homeZIndex);
+        home.css('z-index', picZIndex);
+
+        loadInventory(picZIndex > homeZIndex); //refresh inventory. if showing home pic then show expanded      
+
+        }
+
+        $(document).ready(function () {
+            $('.qualityCategory').click(function () {
+                $(this).children('.expand').toggle();
+                $(this).children('.contract').toggle();
+                $(this).next().toggle('fast');
+                return false;
+
+            }).next().hide();
+        });
+    
+
+</script>
+<!--YOU TOP-->
+<div id="journal" style="display: none; background-image: url(http://images.echobazaar.failbettergames.com/tabs/parchtile.jpg);">
+loading -
+
+</div>
+<div class="redesign_heading">
+<a class="standard_btn" href="/Profile/David~Pone" style="float:right;margin-right:15px;">profile</a>
+<h1 style="font-weight:bold;"><a href="#" onclick="return loadMainContent('/Fate/AskNameChange')">David Pone</a></h1>
+<p style="margin:0px;text-transform:none;font-size:larger;"> 
+        a
+        <strong> magnificent and shrewd</strong> 
+        gentleman
+    </p>
+</div>
+<!--YOU MIDDLE START-->
+<div class="you_mid_lhs">
+<div id="you_pic" onclick="swapYouFrames()">
+<img alt="You" src="http://images.echobazaar.failbettergames.com/avatars_framable/gentleman/beardy.png" title="You"/>
+<img alt="Show Cameo" class="frame_button" id="you_pic_button" src="http://images.echobazaar.failbettergames.com/cameo.png"/>
+</div>
+<div class="tooltip" id="you_home" onclick="swapYouFrames()" title="&lt;strong&gt;Rooms above a Bookshop&lt;/strong&gt;: rooms on three levels above a winding, dusty stair. The owner is melancholy and given to buttonholing you at the door and weeping into your hat. But he does have some interesting customers. &lt;strong&gt;This address
+allows you to keep 3 Opportunity cards in your hand.&lt;/strong&gt;">
+<img alt="Rooms above a Bookshop" src="http://images.echobazaar.failbettergames.com/lodgings/bookshop.png"/>
+<img alt="Show Lodgings" class="frame_button" id="you_home_button" src="http://images.echobazaar.failbettergames.com/lodgings.png"/>
+</div>
+<div id="you_extras">
+<a class="standard_btn label" href="#" onclick="return loadMainContent('/Me/DisplayAvatarChoices')" style="cursor: pointer;">PREVIEW CAMEOS</a>
+</div>
+</div>
+<div id="inventory">
+<a class="standard_btn label" href="javascript:void(0)" onclick="swapYouFrames();return false" style="visibility:hidden;float:right;margin:10px 15px 10px 0;">EXPANDED INVENTORY</a>
+<div style="float:left;">
+<div class="you_mid_mid">
+<ul class="you_icon">
+<li><a class="tooltip " onclick="unadoptThing(305,false);" title="&lt;strong&gt;1 x Gentleman's Hat&lt;/strong&gt;&lt;br/&gt;A properly dignified enhancement for your head.&lt;br/&gt;&lt;strong&gt;Persuasive +2.&lt;/strong&gt;&lt;br/&gt;"><div class="qq" id=""></div><div id="infoBarQImage305"><img alt="tophat - A properly dignified enhancement for your head." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/tophatsmall.png" width="40"/></div></a></li><p><strong>HAT</strong></p>
+<div class="clear"></div>
+<li><a class="tooltip " onclick="unadoptThing(719,false);" title="&lt;strong&gt;1 x Morning Suit&lt;/strong&gt;&lt;br/&gt;Brisk and clean. The attire of clerks, diplomats, and the livelier sort of solicitor.&lt;br/&gt;&lt;strong&gt;Watchful +3; Persuasive +2; Dangerous-1; Respectable +1.&lt;/strong&gt;&lt;br/&gt;"><div class="qq" id=""></div><div id="infoBarQImage719"><img alt="suitmorning - Brisk and clean. The attire of clerks, diplomats, and the livelier sort of solicitor." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/suitmorningsmall.png" width="40"/></div></a></li><p><strong>CLOTHING</strong></p>
+<div class="clear"></div>
+<li><a class="tooltip " onclick="unadoptThing(291,false);" title="&lt;strong&gt;1 x Magician's Gloves&lt;/strong&gt;&lt;br/&gt;Spotless as an untroubled heart.&lt;br/&gt;&lt;strong&gt;Persuasive +2; Dangerous-1.&lt;/strong&gt;&lt;br/&gt;"><div class="qq" id=""></div><div id="infoBarQImage291"><img alt="whitegloveblackback - Spotless as an untroubled heart." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/whitegloveblackbacksmall.png" width="40"/></div></a></li><p><strong>GLOVES</strong></p>
+<div class="clear"></div>
+<li><a class="tooltip " onclick="unadoptThing(334,false);" title="&lt;strong&gt;1 x Tasselled Sword-Cane&lt;/strong&gt;&lt;br/&gt;A stylish accoutrement for one who fears they might be beset by footpads.&lt;br/&gt;&lt;strong&gt;Persuasive +2; Dangerous +2.&lt;/strong&gt;&lt;br/&gt;"><div class="qq" id=""></div><div id="infoBarQImage334"><img alt="canetasselledred - A stylish accoutrement for one who fears they might be beset by footpads." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/canetasselledredsmall.png" width="40"/></div></a></li><p><strong>WEAPON</strong></p>
+<div class="clear"></div>
+<li><a class="tooltip " onclick="unadoptThing(608,false);" title="&lt;strong&gt;1 x Mirror-polished Shoes&lt;/strong&gt;&lt;br/&gt;Perfect for unobtrusive observation of intricate enigmas. Although you might at times catch an unwanted glimpse of your own face.&lt;br/&gt;&lt;strong&gt;Watchful +2.&lt;/strong&gt;&lt;br/&gt;"><div class="qq" id=""></div><div id="infoBarQImage608"><img alt="shoes - Perfect for unobtrusive observation of intricate enigmas. Although you might at times catch an unwanted glimpse of your own face." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/shoessmall.png" width="40"/></div></a></li><p><strong>BOOTS</strong></p>
+<div class="clear"></div>
+<li><a class="tooltip " onclick="unadoptThing(18532,false);" title="&lt;strong&gt;1 x Appreciation Society&lt;/strong&gt;&lt;br/&gt;Your readers have clubbed together! Their enthusiasm can occasionally be disconcerting, but they are a wonderful source of information and support.&lt;br/&gt;&lt;strong&gt;Persuasive +9; Watchful +9.&lt;/strong&gt;&lt;br/&gt;"><div class="qq" id=""></div><div id="infoBarQImage18532"><img alt="promissorynote - Your readers have clubbed together! Their enthusiasm can occasionally be disconcerting, but they are a wonderful source of information and support." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/promissorynotesmall.png" width="40"/></div></a></li><p><strong>PET</strong></p>
+<div class="clear"></div>
+</ul>
+</div>
+<div class="you_mid_rhs">
+<ul class="you_icon">
+<li>
+<a class="tooltip " onclick="adoptThing(306, false)" title="&lt;strong&gt;1 x Neathglass Goggles&lt;/strong&gt;&lt;br/&gt;Neathglass is found on black pebble beaches by candle-light. These retain a little of that light.&lt;br/&gt;&lt;strong&gt;Watchful +2.&lt;/strong&gt;&lt;br/&gt;"><div class="qq" id="">1</div><div id="infoBarQImage306"><img alt="goggles - Neathglass is found on black pebble beaches by candle-light. These retain a little of that light." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/gogglessmall.png" width="40"/></div></a>
+</li>
+<li>
+<a class="tooltip " onclick="adoptThing(466, false)" title="&lt;strong&gt;1 x Pirate Hat&lt;/strong&gt;&lt;br/&gt;Ridiculous, flamboyant or menacing? You be the judge.&lt;br/&gt;&lt;strong&gt;Dangerous +2; Suspicion +1.&lt;/strong&gt;&lt;br/&gt;"><div class="qq" id="">1</div><div id="infoBarQImage466"><img alt="piratehat - Ridiculous, flamboyant or menacing? You be the judge." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/piratehatsmall.png" width="40"/></div></a>
+</li>
+<li>
+<a class="tooltip " onclick="adoptThing(556, false)" title="&lt;strong&gt;57 x Ridiculous Hat&lt;/strong&gt;&lt;br/&gt;It's hard even to take yourself seriously in this extraordinary creation.&lt;br/&gt;&lt;strong&gt;Dangerous-10; Persuasive-10; Watchful-10; Shadowy-10.&lt;/strong&gt;&lt;br/&gt;"><div class="qq" id="">57</div><div id="infoBarQImage556"><img alt="ridiculoushat - It's hard even to take yourself seriously in this extraordinary creation." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/ridiculoushatsmall.png" width="40"/></div></a>
+</li>
+<li> <a></a></li>
+<li> <a></a></li>
+<li> <a></a></li>
+</ul>
+<ul class="you_icon">
+<li> <a></a></li>
+<li> <a></a></li>
+<li> <a></a></li>
+<li> <a></a></li>
+<li> <a></a></li>
+<li> <a></a></li>
+</ul>
+<ul class="you_icon">
+<li>
+<a class="tooltip " onclick="adoptThing(292, false)" title="&lt;strong&gt;1 x Cutpurse's Mittens&lt;/strong&gt;&lt;br/&gt;Ragged and filthy, but the luck of the Flit clings to them.&lt;br/&gt;&lt;strong&gt;Shadowy +2; Persuasive-1.&lt;/strong&gt;&lt;br/&gt;"><div class="qq" id="">1</div><div id="infoBarQImage292"><img alt="fingerless - Ragged and filthy, but the luck of the Flit clings to them." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/fingerlesssmall.png" width="40"/></div></a>
+</li>
+<li> <a></a></li>
+<li> <a></a></li>
+<li> <a></a></li>
+<li> <a></a></li>
+<li> <a></a></li>
+</ul>
+<ul class="you_icon">
+<li> <a></a></li>
+<li> <a></a></li>
+<li> <a></a></li>
+<li> <a></a></li>
+<li> <a></a></li>
+<li> <a></a></li>
+</ul>
+<ul class="you_icon">
+<li>
+<a class="tooltip " onclick="adoptThing(467, false)" title="&lt;strong&gt;1 x Scarlet Stockings of Dubious Origin&lt;/strong&gt;&lt;br/&gt;Mr Wines provides stockings to his employees. These are not those stockings. But they are very striking. [Note: the Scandal gained from these may stick.]&lt;br/&gt;&lt;strong&gt;Persuasive +2; Scandal +1.&lt;/strong&gt;&lt;br/&gt;"><div class="qq" id="">1</div><div id="infoBarQImage467"><img alt="stockingsfake - Mr Wines provides stockings to his employees. These are not those stockings. But they are very striking. [Note: the Scandal gained from these may stick.]" border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/stockingsfakesmall.png" width="40"/></div></a>
+</li>
+<li> <a></a></li>
+<li> <a></a></li>
+<li> <a></a></li>
+<li> <a></a></li>
+<li> <a></a></li>
+</ul>
+<ul class="you_icon">
+<li>
+<a class="tooltip " onclick="adoptThing(445, false)" title="&lt;strong&gt;1 x Cardsharp Monkey&lt;/strong&gt;&lt;br/&gt;It's calmed down a bit. But it still keeps getting in the way.&lt;br/&gt;&lt;strong&gt;Watchful +4; Persuasive-1; Dangerous-1.&lt;/strong&gt;&lt;br/&gt;"><div class="qq" id="">1</div><div id="infoBarQImage445"><img alt="monkey - It's calmed down a bit. But it still keeps getting in the way." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/monkeysmall.png" width="40"/></div></a>
+</li>
+<li>
+<a class="tooltip " onclick="adoptThing(464, false)" title="&lt;strong&gt;1 x A Cheerful Goldfish&lt;/strong&gt;&lt;br/&gt;A happy addition to your household.&lt;br/&gt;&lt;strong&gt;Nightmares-1.&lt;/strong&gt;&lt;br/&gt;"><div class="qq" id="">1</div><div id="infoBarQImage464"><img alt="fish_gold - A happy addition to your household." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/fish_goldsmall.png" width="40"/></div></a>
+</li>
+<li>
+<a class="tooltip " onclick="adoptThing(973, false)" title="&lt;strong&gt;1 x Toitle (Partisan Messenger Tortoise)&lt;/strong&gt;&lt;br/&gt;They'll never see this one coming.&lt;br/&gt;&lt;strong&gt;Respectable +1.&lt;/strong&gt;&lt;br/&gt;Find her at a clandestine rendezvous in Watchmaker's Hill&lt;br/&gt;"><div class="qq" id="">1</div><div id="infoBarQImage973"><img alt="tortoise - They'll never see this one coming." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/tortoisesmall.png" width="40"/></div></a>
+</li>
+<li> <a></a></li>
+<li> <a></a></li>
+<li> <a></a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="explanation" style="float:right; margin:0px 20px 0px 0px;clear:both;">Click an item to equip it!</div>
+<!--YOU MIDDLE END-->
+<div id="quality-chooser" style="display:none">
+</div>
+<div class="clear"></div>
+<div id="scrapbook-and-mantelpiece">
+<h2 class="redesign">Scrapbook and Mantelpiece</h2>
+<p class="explanation" style="margin-top:-10px;">Click to choose qualities for your Profile</p>
+<ul class="you_icon mantelpiece-scrapbook">
+<li id="scrapbook"><a class="tooltip " onclick="displayQualitiesForSelection('scrapbook', 'SetScrapbookStatus', 'Status', 'Choose your new Scrapbook Status');" title="&lt;strong&gt;an Admirer of Art A Gentle Critic&lt;/strong&gt;&lt;br/&gt;You've enjoyed a close and cherished friendship with a Struggling Artist.&lt;br/&gt;"><div id="infoBarQImage508"><img alt="chap1 - You've enjoyed a close and cherished friendship with a Struggling Artist." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/chap1small.png" width="40"/></div></a>
+<p><strong>SCRAPBOOK STATUS</strong></p>
+</li>
+<li id="mantelpiece"><a class="tooltip " onclick="displayQualitiesForSelection('mantelpiece', 'SetMantelpieceItem', 'Thing', 'Choose your new Mantelpiece Item');" title="&lt;strong&gt;1 x Toitle (Partisan Messenger Tortoise)&lt;/strong&gt;&lt;br/&gt;They'll never see this one coming.&lt;br/&gt;&lt;strong&gt;Respectable +1.&lt;/strong&gt;&lt;br/&gt;Find her at a clandestine rendezvous in Watchmaker's Hill&lt;br/&gt;"><div class="qq" id=""></div><div id="infoBarQImage973"><img alt="tortoise - They'll never see this one coming." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/tortoisesmall.png" width="40"/></div></a>
+<p><strong>MANTELPIECE ITEM</strong></p>
+</li>
+</ul>
+</div>
+<div class="clear" style="width:100%;border:1px solid transparent"></div>
+<!--YOU BOTTOM START-->
+<div class="you_bottom">
+<!--YOU LHS BOTTOM START-->
+<div class="you_bottom_lhs">
+<!--YOU LHS BOTTOM START-->
+<h2 class="redesign">QUALITIES</h2>
+<div> </div>
+<div id="noCategory">
+</div>
+<h3 class="qualityCategory">
+<span class="contract" style="display: none; cursor: pointer;">-</span>
+<span class="expand" style="cursor: pointer;">+</span>
+                     
+                    <a href="#" style="color: black">Accomplishment</a>
+</h3>
+<div class="qualitiesToggleDiv">
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;The Bazaar's Questions This'll only take a moment. Two moments.&lt;/strong&gt;&lt;br/&gt;You have made your opinion known.&lt;br/&gt;"><div id="infoBarQImage487"><img alt="question - You have made your opinion known." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/questionsmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>The Bazaar's Questions This'll only take a moment. Two moments.
+    </strong></p>
+<p style="clear: left;">You have made your opinion known.</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;the Darling of the Ambassador's Ball &lt;/strong&gt;&lt;br/&gt;The cream of society thought you most charming.&lt;br/&gt;"><div id="infoBarQImage496"><img alt="bohogirl3 - The cream of society thought you most charming." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/bohogirl3small.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>the Darling of the Ambassador's Ball 
+    </strong></p>
+<p style="clear: left;">The cream of society thought you most charming.</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;an Admirer of Art A Gentle Critic&lt;/strong&gt;&lt;br/&gt;You've enjoyed a close and cherished friendship with a Struggling Artist.&lt;br/&gt;"><div id="infoBarQImage508"><img alt="chap1 - You've enjoyed a close and cherished friendship with a Struggling Artist." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/chap1small.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>an Admirer of Art A Gentle Critic
+    </strong></p>
+<p style="clear: left;">You've enjoyed a close and cherished friendship with a Struggling Artist.</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;an Admirer of Beauty Beautiful Company&lt;/strong&gt;&lt;br/&gt;You've enjoyed a close and cherished friendship with a Struggling Artist's Model.&lt;br/&gt;"><div id="infoBarQImage509"><img alt="bohogirl1 - You've enjoyed a close and cherished friendship with a Struggling Artist's Model." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/bohogirl1small.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>an Admirer of Beauty Beautiful Company
+    </strong></p>
+<p style="clear: left;">You've enjoyed a close and cherished friendship with a Struggling Artist's Model.</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;Free of Surface Ties A citizen below&lt;/strong&gt;&lt;br/&gt;You are a true child of the Neath. There is nothing left for you on the surface now.&lt;br/&gt;"><div id="infoBarQImage518"><img alt="fanghat - You are a true child of the Neath. There is nothing left for you on the surface now." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/fanghatsmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>Free of Surface Ties A citizen below
+    </strong></p>
+<p style="clear: left;">You are a true child of the Neath. There is nothing left for you on the surface now.</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;Admitted to the House of Chimes Illegitimately Royal?&lt;/strong&gt;&lt;br/&gt;You have been known to frequent Fallen London's most exclusive private members' club.&lt;br/&gt;"><div id="infoBarQImage851"><img alt=" - You have been known to frequent Fallen London's most exclusive private members' club." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/placeholder2small.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>Admitted to the House of Chimes Illegitimately Royal?
+    </strong></p>
+<p style="clear: left;">You have been known to frequent Fallen London's most exclusive private members' club.</p></div>
+</div>
+</div>
+<h3 class="qualityCategory">
+<span class="contract" style="display: none; cursor: pointer;">-</span>
+<span class="expand" style="cursor: pointer;">+</span>
+                     
+                    <a href="#" style="color: black">Acquaintance</a>
+</h3>
+<div class="qualitiesToggleDiv">
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;Acquaintance: Wry Functionary 2&lt;/strong&gt;&lt;br/&gt;A friend in a fairly high place.&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage497"><img alt="functionary - A friend in a fairly high place." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/functionarysmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>Acquaintance: Wry Functionary 2
+    </strong></p>
+<p style="clear: left;">A friend in a fairly high place.</p></div>
+</div>
+</div>
+<h3 class="qualityCategory">
+<span class="contract" style="display: none; cursor: pointer;">-</span>
+<span class="expand" style="cursor: pointer;">+</span>
+                     
+                    <a href="#" style="color: black">Ambition</a>
+</h3>
+<div class="qualitiesToggleDiv">
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;Ambition: Heart's Desire! 12&lt;/strong&gt;&lt;br/&gt;Progress in looking for a notorious card game in which you can stake your soul and win your heart's desire.&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage271"><img alt="cardfan - Progress in looking for a notorious card game in which you can stake your soul and win your heart's desire." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/cardfansmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>Ambition: Heart's Desire! 12
+    <br/><a href="#" onclick="openJournal(); return false;"> REMINISCE about your adventures</a>
+</strong></p>
+<p style="clear: left;">Progress in looking for a notorious card game in which you can stake your soul and win your heart's desire.</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;Ambition: Heart's Desire - The Bishop of St Fiacre's 4&lt;/strong&gt;&lt;br/&gt;The Bishop has a weakness for cards, apparently. How can you persuade him to admit it?&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage444"><img alt="cardfan - The Bishop has a weakness for cards, apparently. How can you persuade him to admit it?" border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/cardfansmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>Ambition: Heart's Desire - The Bishop of St Fiacre's 4
+    <br/><a href="#" onclick="openJournal(); return false;"> REMINISCE about your adventures</a>
+</strong></p>
+<p style="clear: left;">The Bishop has a weakness for cards, apparently. How can you persuade him to admit it?</p></div>
+</div>
+</div>
+<h3 class="qualityCategory">
+<span class="contract" style="display: none; cursor: pointer;">-</span>
+<span class="expand" style="cursor: pointer;">+</span>
+                     
+                    <a href="#" style="color: black">Circumstance</a>
+</h3>
+<div class="qualitiesToggleDiv">
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;The Airs of London are Changeable (different choices will show up at different times) &lt;/strong&gt;&lt;br/&gt;Not every day in the Neath is the same.&lt;br/&gt;"><div id="infoBarQImage9070"><img alt="clouds - Not every day in the Neath is the same." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/cloudssmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>The Airs of London are Changeable (different choices will show up at different times) 
+    </strong></p>
+<p style="clear: left;">Not every day in the Neath is the same.</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;A Matter of Age You've answered a question about your age. We won't display the result.&lt;/strong&gt;&lt;br/&gt;When were you born? The surface-you?&lt;br/&gt;"><div id="infoBarQImage11442"><img alt="clouds - When were you born? The surface-you?" border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/cloudssmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>A Matter of Age You've answered a question about your age. We won't display the result.
+    </strong></p>
+<p style="clear: left;">When were you born? The surface-you?</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title=""><div id="infoBarQImage11443"><img alt="mirror - " border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/mirrorsmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>A Matter of Gender You've answered a question about your gender. We won't display the result.
+    </strong></p>
+<p style="clear: left;"></p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;The Airs of the Forgotten Quarter are wistful.&lt;/strong&gt;&lt;br/&gt;The Quarter is still. It changes when you're not looking.&lt;br/&gt;"><div id="infoBarQImage23354"><img alt="forgottenquarter2 - The Quarter is still. It changes when you're not looking." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/forgottenquarter2small.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>The Airs of the Forgotten Quarter are wistful.
+    </strong></p>
+<p style="clear: left;">The Quarter is still. It changes when you're not looking.</p></div>
+</div>
+</div>
+<h3 class="qualityCategory">
+<span class="contract" style="display: none; cursor: pointer;">-</span>
+<span class="expand" style="cursor: pointer;">+</span>
+                     
+                    <a href="#" style="color: black">Contacts</a>
+</h3>
+<div class="qualitiesToggleDiv">
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;Connected: Bohemian 16 - Associated With&lt;/strong&gt;&lt;br/&gt;On good terms with poets, artists, writers and other scoundrels.&lt;br/&gt;You can increase this at Veilgarden or Mrs. Plenty's Carnival,  by using an Ornate Typewriter purchased at the Bazaar, or with the Bohemian Opportunity card.&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage276"><img alt="bohogirl1 - On good terms with poets, artists, writers and other scoundrels." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/bohogirl1small.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>Connected: Bohemian 16 - Associated With
+    </strong></p>
+<p style="clear: left;">On good terms with poets, artists, writers and other scoundrels.</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;Connected: The Great Game 9 - Dabbling&lt;/strong&gt;&lt;br/&gt;The Great Game is played between the Bazaar's Masters, the surface cities, and other powers. Spies and assassins are their pawns.&lt;br/&gt;You can increase this at Mrs. Plenty's Carnival, by pursuing the affair of the Cheesemonger, by using a Copper Cipher Ring purchased at the Bazaar or with the Great Game-related Opportunity card.&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage277"><img alt="pawn - The Great Game is played between the Bazaar's Masters, the surface cities, and other powers. Spies and assassins are their pawns." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/pawnsmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>Connected: The Great Game 9 - Dabbling
+    </strong></p>
+<p style="clear: left;">The Great Game is played between the Bazaar's Masters, the surface cities, and other powers. Spies and assassins are their pawns.</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;Connected: Criminals 4 - Acquainted&lt;/strong&gt;&lt;br/&gt;On first-name terms with cut-purses, house-breakers, counterfeiters and what, in other cities, would probably be called the underworld.&lt;br/&gt; You can increase this at Mrs. Plenty's Carnival, Spite or the Flit, by using an Old Bone Skeleton Key purchased at the Bazaar, or with the Criminals' Opportunity card.&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage278"><img alt="manacles - On first-name terms with cut-purses, house-breakers, counterfeiters and what, in other cities, would probably be called the underworld." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/manaclessmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>Connected: Criminals 4 - Acquainted
+    </strong></p>
+<p style="clear: left;">On first-name terms with cut-purses, house-breakers, counterfeiters and what, in other cities, would probably be called the underworld.</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;Connected: Urchins 2 - Acquainted&lt;/strong&gt;&lt;br/&gt;Connections with the urchin gangs of the city.&lt;br/&gt;You can increase this in the Flit or at Mrs. Plenty's Carnival. You can also use a Rookery Password purchased at the Bazaar, or the Urchins' Opportunity card.&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage279"><img alt="urchin - Connections with the urchin gangs of the city." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/urchinsmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>Connected: Urchins 2 - Acquainted
+    </strong></p>
+<p style="clear: left;">Connections with the urchin gangs of the city.</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;Connected: The Church 7 - Acquainted&lt;/strong&gt;&lt;br/&gt;Acquaintance with the clergy.&lt;br/&gt;You can increase this at Mrs. Plenty's Carnival, on the 4th Coil of the Labyrinth of Tigers, or by using a Tiny Jewelled Reliquary purchased at the Bazaar.&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage280"><img alt="clergy - Acquaintance with the clergy." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/clergysmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>Connected: The Church 7 - Acquainted
+    </strong></p>
+<p style="clear: left;">Acquaintance with the clergy.</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;Connected: Hell 1 - Infernal Acquaintances&lt;/strong&gt;&lt;br/&gt;On a first-name basis with devils.&lt;br/&gt;You can increase this at Mrs. Plenty's Carnival,  by using a Bright Brass Skull purchased at the Bazaar, or with Hell's own Opportunity card.&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage281"><img alt="devil - On a first-name basis with devils." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/devilsmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>Connected: Hell 1 - Infernal Acquaintances
+    </strong></p>
+<p style="clear: left;">On a first-name basis with devils.</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;Connected: The Docks 5 - Acquainted&lt;/strong&gt;&lt;br/&gt;Acquaintance with the folk of the river and the Hill: zee-captains, barge-men, dock-workers, rat-catchers, travellers.&lt;br/&gt;You can increase this at Mrs. Plenty's Carnival or Wolfstack Docks. You can also use an Engraved Pewter Tankard purchased at the Bazaar, or the Docks' Opportunity card.&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage282"><img alt="ship - Acquaintance with the folk of the river and the Hill: zee-captains, barge-men, dock-workers, rat-catchers, travellers." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/shipsmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>Connected: The Docks 5 - Acquainted
+    </strong></p>
+<p style="clear: left;">Acquaintance with the folk of the river and the Hill: zee-captains, barge-men, dock-workers, rat-catchers, travellers.</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;Connected: The Tomb-Colonies 1 - Acquainted&lt;/strong&gt;&lt;br/&gt;Dealings with the bandaged gentlemen from the Quiet Cities across the Unterzee.&lt;br/&gt;You can increase this at Mrs. Plenty's Carnival, by using a Diary of the Dead purchased at the Bazaar, or with the Tomb-Colonists' Opportunity card.&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage283"><img alt="bandagedman - Dealings with the bandaged gentlemen from the Quiet Cities across the Unterzee." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/bandagedmansmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>Connected: The Tomb-Colonies 1 - Acquainted
+    </strong></p>
+<p style="clear: left;">Dealings with the bandaged gentlemen from the Quiet Cities across the Unterzee.</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;Connected: Revolutionaries 1 - An Acquaintance&lt;/strong&gt;&lt;br/&gt;Knowledge of the jargon and pass-phrases of the malcontents and anarchists of the City.&lt;br/&gt;You can increase this at Mrs. Plenty's Carnival, by using a Red-Feathered Pin purchased at the Bazaar, or with the Revolutionaries' Opportunity card.&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage285"><img alt="flames - Knowledge of the jargon and pass-phrases of the malcontents and anarchists of the City." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/flamessmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>Connected: Revolutionaries 1 - An Acquaintance
+    </strong></p>
+<p style="clear: left;">Knowledge of the jargon and pass-phrases of the malcontents and anarchists of the City.</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;Connected: Constables 9 - Acquainted&lt;/strong&gt;&lt;br/&gt;Acquaintance with the burly, serious gentlemen who uphold the law of the Bazaar.&lt;br/&gt;You can increase this at Mrs. Plenty's Carnival or by joining the Velocipede Squad. You can also use an Antique Constable's Badge purchased at the Bazaar, or the Constables' Opportunity card.&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage286"><img alt="copper - Acquaintance with the burly, serious gentlemen who uphold the law of the Bazaar." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/coppersmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>Connected: Constables 9 - Acquainted
+    </strong></p>
+<p style="clear: left;">Acquaintance with the burly, serious gentlemen who uphold the law of the Bazaar.</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;Connected: Society 23 - Permitted&lt;/strong&gt;&lt;br/&gt;Sometimes permitted to visit the houses of the wealthy.&lt;br/&gt;You can increase this at the Shuttered Palace, the Empress' Court, or Mrs. Plenty's Carnival. You can also use an Entry in Slowcake's Exceptionals purchased at the Bazaar.&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage287"><img alt="salon3 - Sometimes permitted to visit the houses of the wealthy." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/salon3small.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>Connected: Society 23 - Permitted
+    </strong></p>
+<p style="clear: left;">Sometimes permitted to visit the houses of the wealthy.</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;Connected: Rubbery Men 13 - -threrrithree-&lt;/strong&gt;&lt;br/&gt;The Rubbery Men twitch their tentacles when they see you, and make a sound like water over stones...&lt;br/&gt;You can increase this at Flute Street, at Mrs. Plenty's Carnival, or by using Pulsating Amber purchased at the Bazaar.&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage288"><img alt="rubberyman - The Rubbery Men twitch their tentacles when they see you, and make a sound like water over stones..." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/rubberymansmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>Connected: Rubbery Men 13 - -threrrithree-
+    </strong></p>
+<p style="clear: left;">The Rubbery Men twitch their tentacles when they see you, and make a sound like water over stones...</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;Connected: the Masters of the Bazaar 1 - Your Face is Seen&lt;/strong&gt;&lt;br/&gt;You've pleased someone.&lt;br/&gt;The Masters are not easily impressed. Chances to please them are rare and risky. You could try Mrs. Plenty's Carnival, I suppose, if you're bold. And lucky.&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage490"><img alt=" - You've pleased someone." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/placeholder2small.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>Connected: the Masters of the Bazaar 1 - Your Face is Seen
+    </strong></p>
+<p style="clear: left;">You've pleased someone.</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;Connected: the Duchess 8 - Oh. You.&lt;/strong&gt;&lt;br/&gt;The Duchess is a woman of independent inclinations. Her opinions do not always align with those of the great and the good.&lt;br/&gt;You can increase this at the Duchess' salon in the Shuttered Palace or at Mrs. Plenty's Carnival. In addition, the Duchess despises the game of Pass the Cat; free the cats to win her favour. &lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage504"><img alt="duchess2 - The Duchess is a woman of independent inclinations. Her opinions do not always align with those of the great and the good." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/duchess2small.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>Connected: the Duchess 8 - Oh. You.
+    </strong></p>
+<p style="clear: left;">The Duchess is a woman of independent inclinations. Her opinions do not always align with those of the great and the good.</p></div>
+</div>
+</div>
+<h3 class="qualityCategory">
+<span class="contract" style="display: none; cursor: pointer;">-</span>
+<span class="expand" style="cursor: pointer;">+</span>
+                     
+                    <a href="#" style="color: black">Dreams</a>
+</h3>
+<div class="qualitiesToggleDiv">
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;having Recurring Dreams: Is Someone There? 1&lt;/strong&gt;&lt;br/&gt;Dreams about being watched.&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage234"><img alt="eye - Dreams about being watched." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/eyesmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>having Recurring Dreams: Is Someone There? 1
+    </strong></p>
+<p style="clear: left;">Dreams about being watched.</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;having Recurring Dreams: What the Thunder Said 4&lt;/strong&gt;&lt;br/&gt;Dreams about the sky.&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage236"><img alt="clouds - Dreams about the sky." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/cloudssmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>having Recurring Dreams: What the Thunder Said 4
+    </strong></p>
+<p style="clear: left;">Dreams about the sky.</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;having Recurring Dreams: The Burial of the Dead 3&lt;/strong&gt;&lt;br/&gt;Dreams about the tomb-colonies and other dark places.&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage237"><img alt="bandagedman - Dreams about the tomb-colonies and other dark places." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/bandagedmansmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>having Recurring Dreams: The Burial of the Dead 3
+    </strong></p>
+<p style="clear: left;">Dreams about the tomb-colonies and other dark places.</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;having Recurring Dreams: The Fire Sermon 1&lt;/strong&gt;&lt;br/&gt;Dreams about flames.&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage238"><img alt="flames - Dreams about flames." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/flamessmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>having Recurring Dreams: The Fire Sermon 1
+    </strong></p>
+<p style="clear: left;">Dreams about flames.</p></div>
+</div>
+</div>
+<h3 class="qualityCategory">
+<span class="contract" style="display: none; cursor: pointer;">-</span>
+<span class="expand" style="cursor: pointer;">+</span>
+                     
+                    <a href="#" style="color: black">Intrigue</a>
+</h3>
+<div class="qualitiesToggleDiv">
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;Intimate with a Secular Missionary 4&lt;/strong&gt;&lt;br/&gt;A sweet-faced lady in search of her errant husband.&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage694"><img alt="boho8 - A sweet-faced lady in search of her errant husband." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/boho8small.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>Intimate with a Secular Missionary 4
+    </strong></p>
+<p style="clear: left;">A sweet-faced lady in search of her errant husband.</p></div>
+</div>
+</div>
+<h3 class="qualityCategory">
+<span class="contract" style="display: none; cursor: pointer;">-</span>
+<span class="expand" style="cursor: pointer;">+</span>
+                     
+                    <a href="#" style="color: black">Major Lateral</a>
+</h3>
+<div class="qualitiesToggleDiv">
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;Profession:  Author&lt;/strong&gt;&lt;br/&gt;Your true passion? Or just a way to earn a crust?&lt;br/&gt;"><div id="infoBarQImage13615"><img alt="spypaper - Your true passion? Or just a way to earn a crust?" border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/spypapersmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>Profession:  Author
+    </strong></p>
+<p style="clear: left;">Your true passion? Or just a way to earn a crust?</p></div>
+</div>
+</div>
+<h3 class="qualityCategory">
+<span class="contract" style="display: none; cursor: pointer;">-</span>
+<span class="expand" style="cursor: pointer;">+</span>
+                     
+                    <a href="#" style="color: black">Menace</a>
+</h3>
+<div class="qualitiesToggleDiv">
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;Wounds 6 - Limping and Cursing&lt;/strong&gt;&lt;br/&gt;Wounds are becoming troublesome. At 8, they may become fatal. Which would be inconvenient.&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage214"><img alt="sidebarwounds - Wounds are becoming troublesome. At 8, they may become fatal. Which would be inconvenient." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/sidebarwoundssmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>Wounds 6 - Limping and Cursing
+    </strong></p>
+<p style="clear: left;">Wounds are becoming troublesome. At 8, they may become fatal. Which would be inconvenient.</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;Scandal 3 - Brazen&lt;/strong&gt;&lt;br/&gt;Scandal is getting out of hand. If this reaches 8, something bad may happen.&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage215"><img alt="sidebarscandal - Scandal is getting out of hand. If this reaches 8, something bad may happen." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/sidebarscandalsmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>Scandal 3 - Brazen
+    </strong></p>
+<p style="clear: left;">Scandal is getting out of hand. If this reaches 8, something bad may happen.</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;Suspicion 1 - Not Entirely Blameless&lt;/strong&gt;&lt;br/&gt;Suspicious activities are beginning to draw the attention of the law. If this reaches 8, something bad may happen.&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage216"><img alt="sidebarsuspicion - Suspicious activities are beginning to draw the attention of the law. If this reaches 8, something bad may happen." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/sidebarsuspicionsmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>Suspicion 1 - Not Entirely Blameless
+    </strong></p>
+<p style="clear: left;">Suspicious activities are beginning to draw the attention of the law. If this reaches 8, something bad may happen.</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;Nightmares 3 - Sleepless&lt;/strong&gt;&lt;br/&gt;Nightmares are becoming a problem. Some nights you hardly dare sleep. If this reaches 5, bad things may begin to happen. Don't let it reach 8.&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage217"><img alt="sidebarnightmares - Nightmares are becoming a problem. Some nights you hardly dare sleep. If this reaches 5, bad things may begin to happen. Don't let it reach 8." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/sidebarnightmaressmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>Nightmares 3 - Sleepless
+    </strong></p>
+<p style="clear: left;">Nightmares are becoming a problem. Some nights you hardly dare sleep. If this reaches 5, bad things may begin to happen. Don't let it reach 8.</p></div>
+</div>
+</div>
+<h3 class="qualityCategory">
+<span class="contract" style="display: none; cursor: pointer;">-</span>
+<span class="expand" style="cursor: pointer;">+</span>
+                     
+                    <a href="#" style="color: black">Minor Lateral</a>
+</h3>
+<div class="qualitiesToggleDiv">
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;The Cheery Man and the Last Constable Favouring the Constable&lt;/strong&gt;&lt;br/&gt;Who do you favour?&lt;br/&gt;"><div id="infoBarQImage1023"><img alt="boho9 - Who do you favour?" border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/boho9small.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>The Cheery Man and the Last Constable Favouring the Constable
+    </strong></p>
+<p style="clear: left;">Who do you favour?</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;An Expedition: Seeking a Thieves' Cache&lt;/strong&gt;&lt;br/&gt;You have embarked on a search in the Forgotten Quarter.&lt;br/&gt;"><div id="infoBarQImage23179"><img alt="ruins - You have embarked on a search in the Forgotten Quarter." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/ruinssmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>An Expedition: Seeking a Thieves' Cache
+    </strong></p>
+<p style="clear: left;">You have embarked on a search in the Forgotten Quarter.</p></div>
+</div>
+</div>
+<h3 class="qualityCategory">
+<span class="contract" style="display: none; cursor: pointer;">-</span>
+<span class="expand" style="cursor: pointer;">+</span>
+                     
+                    <a href="#" style="color: black">Progress</a>
+</h3>
+<div class="qualitiesToggleDiv">
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;Someone is Coming 3 - Distant Footsteps&lt;/strong&gt;&lt;br/&gt;Someone will be here soon.&lt;br/&gt;Gained via opportunities across London&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage1028"><img alt="follow2 - Someone will be here soon." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/follow2small.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>Someone is Coming 3 - Distant Footsteps
+    </strong></p>
+<p style="clear: left;">Someone will be here soon.</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;Archaeologist's Progress 6&lt;/strong&gt;&lt;br/&gt;You are drawing closer to the object of your search. &lt;br/&gt;Increase this by spending Supplies.&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage23175"><img alt="dig - You are drawing closer to the object of your search. " border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/digsmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>Archaeologist's Progress 6
+    </strong></p>
+<p style="clear: left;">You are drawing closer to the object of your search. </p></div>
+</div>
+</div>
+<h3 class="qualityCategory">
+<span class="contract" style="display: none; cursor: pointer;">-</span>
+<span class="expand" style="cursor: pointer;">+</span>
+                     
+                    <a href="#" style="color: black">Quirk</a>
+</h3>
+<div class="qualitiesToggleDiv">
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;Daring 2 - Bold!&lt;/strong&gt;&lt;br/&gt;You have shown yourself dauntless - or rash.&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage264"><img alt="fist - You have shown yourself dauntless - or rash." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/fistsmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>Daring 2 - Bold!
+    </strong></p>
+<p style="clear: left;">You have shown yourself dauntless - or rash.</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;Heartless 2&lt;/strong&gt;&lt;br/&gt;What? It's none of &lt;em&gt;my&lt;/em&gt; affair.&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage265"><img alt="roseblack - What? It's none of &lt;em&gt;my&lt;/em&gt; affair." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/roseblacksmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>Heartless 2
+    </strong></p>
+<p style="clear: left;">What? It's none of <em>my</em> affair.</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;Magnanimous 6&lt;/strong&gt;&lt;br/&gt;Perhaps you have hidden motives for your kindness. But you've done good things.&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage266"><img alt="mercyhand - Perhaps you have hidden motives for your kindness. But you've done good things." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/mercyhandsmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>Magnanimous 6
+    </strong></p>
+<p style="clear: left;">Perhaps you have hidden motives for your kindness. But you've done good things.</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;Ruthless 5&lt;/strong&gt;&lt;br/&gt;Nothing can be allowed to stand between you and your goals.&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage267"><img alt="snakehead - Nothing can be allowed to stand between you and your goals." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/snakeheadsmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>Ruthless 5
+    </strong></p>
+<p style="clear: left;">Nothing can be allowed to stand between you and your goals.</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;Forceful 2&lt;/strong&gt;&lt;br/&gt;When faced with difficulties, you prefer the direct approach.&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage268"><img alt="fist - When faced with difficulties, you prefer the direct approach." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/fistsmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>Forceful 2
+    </strong></p>
+<p style="clear: left;">When faced with difficulties, you prefer the direct approach.</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;Subtle 6 - Cunning as...why are there no foxes in the city?&lt;/strong&gt;&lt;br/&gt;You often go round a problem rather than through it.&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage269"><img alt="mask - You often go round a problem rather than through it." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/masksmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>Subtle 6 - Cunning as...why are there no foxes in the city?
+    </strong></p>
+<p style="clear: left;">You often go round a problem rather than through it.</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;Hedonist 8 - Wanton&lt;/strong&gt;&lt;br/&gt;The pursuit of pleasure is increasingly a distraction for you.&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage270"><img alt="goldenapple - The pursuit of pleasure is increasingly a distraction for you." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/goldenapplesmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>Hedonist 8 - Wanton
+    </strong></p>
+<p style="clear: left;">The pursuit of pleasure is increasingly a distraction for you.</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;Steadfast 1&lt;/strong&gt;&lt;br/&gt;You have been known to keep your word.&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage500"><img alt="declaim - You have been known to keep your word." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/declaimsmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>Steadfast 1
+    </strong></p>
+<p style="clear: left;">You have been known to keep your word.</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;Melancholy 5&lt;/strong&gt;&lt;br/&gt;There is a sadness on you.&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage521"><img alt="placeholder6 - There is a sadness on you." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/placeholder6small.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>Melancholy 5
+    </strong></p>
+<p style="clear: left;">There is a sadness on you.</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;Austere 4 - Temperate&lt;/strong&gt;&lt;br/&gt;You have been known to resist the lures and temptations of earthly pleasures.&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage572"><img alt="stick - You have been known to resist the lures and temptations of earthly pleasures." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/sticksmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>Austere 4 - Temperate
+    </strong></p>
+<p style="clear: left;">You have been known to resist the lures and temptations of earthly pleasures.</p></div>
+</div>
+</div>
+<h3 class="qualityCategory">
+<span class="contract" style="display: none; cursor: pointer;">-</span>
+<span class="expand" style="cursor: pointer;">+</span>
+                     
+                    <a href="#" style="color: black">Route</a>
+</h3>
+<div class="qualitiesToggleDiv">
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;Route: The Shuttered Palace 1&lt;/strong&gt;&lt;br/&gt;You've gained entrance to the Shuttered Palace&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage427"><img alt="palace - You've gained entrance to the Shuttered Palace" border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/palacesmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>Route: The Shuttered Palace 1
+    </strong></p>
+<p style="clear: left;">You've gained entrance to the Shuttered Palace</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;Route: The Forgotten Quarter 1&lt;/strong&gt;&lt;br/&gt;A way has opened for you to the Forgotten Quarter&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage429"><img alt="horsehead - A way has opened for you to the Forgotten Quarter" border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/horseheadsmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>Route: The Forgotten Quarter 1
+    </strong></p>
+<p style="clear: left;">A way has opened for you to the Forgotten Quarter</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;Route: The Flit 1&lt;/strong&gt;&lt;br/&gt;You know the ways up to the Flit.&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage430"><img alt="flit - You know the ways up to the Flit." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/flitsmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>Route: The Flit 1
+    </strong></p>
+<p style="clear: left;">You know the ways up to the Flit.</p></div>
+</div>
+</div>
+<h3 class="qualityCategory">
+<span class="contract" style="display: none; cursor: pointer;">-</span>
+<span class="expand" style="cursor: pointer;">+</span>
+                     
+                    <a href="#" style="color: black">Specific Ability</a>
+</h3>
+<div class="qualitiesToggleDiv">
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;Making Waves 6&lt;/strong&gt;&lt;br/&gt;You have something of a reputation! Now be sure to keep your name before the public. [Making Waves will drop over time.]&lt;br/&gt;You can gain Making Waves in a variety of places, but always through social actions in your Lodgings.&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage545"><img alt="waves - You have something of a reputation! Now be sure to keep your name before the public. [Making Waves will drop over time.]" border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/wavessmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>Making Waves 6
+    </strong></p>
+<p style="clear: left;">You have something of a reputation! Now be sure to keep your name before the public. [Making Waves will drop over time.]</p></div>
+</div>
+</div>
+<h3 class="qualityCategory">
+<span class="contract" style="display: none; cursor: pointer;">-</span>
+<span class="expand" style="cursor: pointer;">+</span>
+                     
+                    <a href="#" style="color: black">Story</a>
+</h3>
+<div class="qualitiesToggleDiv">
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;Evidence in the Case of the Absconding Devil 7 - The Absconding Devil left London without his music-hall singer.&lt;/strong&gt;&lt;br/&gt;Find a minor infernal functionary who's taken French leave.&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage254"><img alt="devil - Find a minor infernal functionary who's taken French leave." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/devilsmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>Evidence in the Case of the Absconding Devil 7 - The Absconding Devil left London without his music-hall singer.
+    </strong></p>
+<p style="clear: left;">Find a minor infernal functionary who's taken French leave.</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;a Finder of Heiresses 2&lt;/strong&gt;&lt;br/&gt;You found the missing Comtessa...poor soul.&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage416"><img alt="bohogirl4 - You found the missing Comtessa...poor soul." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/bohogirl4small.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>a Finder of Heiresses 2
+    </strong></p>
+<p style="clear: left;">You found the missing Comtessa...poor soul.</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;a visitor to the Clay Quarters 5&lt;/strong&gt;&lt;br/&gt;You have gained access to the Clay Quarters in your search for the Comtessa.&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage417"><img alt="clayman - You have gained access to the Clay Quarters in your search for the Comtessa." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/claymansmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>a visitor to the Clay Quarters 5
+    </strong></p>
+<p style="clear: left;">You have gained access to the Clay Quarters in your search for the Comtessa.</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;a Constables' Pet 1&lt;/strong&gt;&lt;br/&gt;You turned traitor on the demons of the Brass Embassy. Be sure they never find out.&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage440"><img alt="copper - You turned traitor on the demons of the Brass Embassy. Be sure they never find out." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/coppersmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>a Constables' Pet 1
+    </strong></p>
+<p style="clear: left;">You turned traitor on the demons of the Brass Embassy. Be sure they never find out.</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;Inconvenienced by your Aunt 3&lt;/strong&gt;&lt;br/&gt;An aunt of yours has descended to Fallen London to live the life she always dreamed of.&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage454"><img alt="aunt - An aunt of yours has descended to Fallen London to live the life she always dreamed of." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/auntsmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>Inconvenienced by your Aunt 3
+    </strong></p>
+<p style="clear: left;">An aunt of yours has descended to Fallen London to live the life she always dreamed of.</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;investigating the Secrets of St Dunstan's 4&lt;/strong&gt;&lt;br/&gt;What's going on in the crypt of St Dunstan's?&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage455"><img alt="church - What's going on in the crypt of St Dunstan's?" border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/churchsmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>investigating the Secrets of St Dunstan's 4
+    </strong></p>
+<p style="clear: left;">What's going on in the crypt of St Dunstan's?</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;exacting the Urchins' Vengeance 2&lt;/strong&gt;&lt;br/&gt;You will see justice done for the urchins.&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage457"><img alt="fist - You will see justice done for the urchins." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/fistsmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>exacting the Urchins' Vengeance 2
+    </strong></p>
+<p style="clear: left;">You will see justice done for the urchins.</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;Archaeologist 1 - Novice&lt;/strong&gt;&lt;br/&gt;You're much more than a common tomb-robber.&lt;br/&gt;Complete tasks and Expeditions in the Forgotten Quarter to increase it.&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage503"><img alt="papers4 - You're much more than a common tomb-robber." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/papers4small.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>Archaeologist 1 - Novice
+    </strong></p>
+<p style="clear: left;">You're much more than a common tomb-robber.</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;ascending the Reliables list of Mr Pages 2&lt;/strong&gt;&lt;br/&gt;You are proving yourself a reliable and discreet investigator.&lt;br/&gt;Gain this through opportunity cards.&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage519"><img alt="magnifyingglass - You are proving yourself a reliable and discreet investigator." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/magnifyingglasssmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>ascending the Reliables list of Mr Pages 2
+    </strong></p>
+<p style="clear: left;">You are proving yourself a reliable and discreet investigator.</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;occasionally seen at Mr Wines' Revels 3&lt;/strong&gt;&lt;br/&gt;You are sometimes invited to festivities limited to the favourites of the Masters&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage527"><img alt="bottleandglass - You are sometimes invited to festivities limited to the favourites of the Masters" border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/bottleandglasssmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>occasionally seen at Mr Wines' Revels 3
+    </strong></p>
+<p style="clear: left;">You are sometimes invited to festivities limited to the favourites of the Masters</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;investigating the Rubbery Murders 22 - A One-Time Scourge of Tanners&lt;/strong&gt;&lt;br/&gt;You are applying your skills to a matter of poison and Rubbery Men&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage576"><img alt="rubberyman - You are applying your skills to a matter of poison and Rubbery Men" border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/rubberymansmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>investigating the Rubbery Murders 22 - A One-Time Scourge of Tanners
+    </strong></p>
+<p style="clear: left;">You are applying your skills to a matter of poison and Rubbery Men</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;cultivating an acquaintance with His Amused Lordship 2&lt;/strong&gt;&lt;br/&gt;you are attempting to gain a valuable contact among the aristocracy&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage578"><img alt="salon2 - you are attempting to gain a valuable contact among the aristocracy" border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/salon2small.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>cultivating an acquaintance with His Amused Lordship 2
+    </strong></p>
+<p style="clear: left;">you are attempting to gain a valuable contact among the aristocracy</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;Inciting a Simian Revenge? 2 - Unpopular&lt;/strong&gt;&lt;br/&gt;You have been taking advantage of your simian companion. Is it keeping track?&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage583"><img alt="monkey - You have been taking advantage of your simian companion. Is it keeping track?" border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/monkeysmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>Inciting a Simian Revenge? 2 - Unpopular
+    </strong></p>
+<p style="clear: left;">You have been taking advantage of your simian companion. Is it keeping track?</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;on the Trail of the Cheesemonger 4&lt;/strong&gt;&lt;br/&gt;just who is this &lt;em&gt;purveyor of curd?&lt;/em&gt;&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage591"><img alt="trail - just who is this &lt;em&gt;purveyor of curd?&lt;/em&gt;" border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/trailsmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>on the Trail of the Cheesemonger 4
+    </strong></p>
+<p style="clear: left;">just who is this <em>purveyor of curd?</em></p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;an Intimate of Devils 8&lt;/strong&gt;&lt;br/&gt;You are on dangerously familiar terms with certain denizens of the Brass Embassy.&lt;br/&gt;Gain this through opportunity cards.&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage596"><img alt="devil - You are on dangerously familiar terms with certain denizens of the Brass Embassy." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/devilsmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>an Intimate of Devils 8
+    </strong></p>
+<p style="clear: left;">You are on dangerously familiar terms with certain denizens of the Brass Embassy.</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;the Protégé of a Mysterious Benefactor 7 - Free of Patronage&lt;/strong&gt;&lt;br/&gt;Who is this person? Why are they being so generous? What do they want?&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage605"><img alt="silhouetteman - Who is this person? Why are they being so generous? What do they want?" border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/silhouettemansmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>the Protégé of a Mysterious Benefactor 7 - Free of Patronage
+    </strong></p>
+<p style="clear: left;">Who is this person? Why are they being so generous? What do they want?</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;Uncovering the Secrets of the Face-Tailor 4 - A Phrase in the Rain&lt;/strong&gt;&lt;br/&gt;A phrase heard in the rain. What does it mean?&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage621"><img alt="silk - A phrase heard in the rain. What does it mean?" border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/silksmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>Uncovering the Secrets of the Face-Tailor 4 - A Phrase in the Rain
+    </strong></p>
+<p style="clear: left;">A phrase heard in the rain. What does it mean?</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;assisting a Keen-Eyed Lapidary 2&lt;/strong&gt;&lt;br/&gt;You have helped an unlucky artisan. You might get that favour repaid at some point.&lt;br/&gt;Gain this through opportunity cards.&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage646"><img alt="bohogirl7 - You have helped an unlucky artisan. You might get that favour repaid at some point." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/bohogirl7small.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>assisting a Keen-Eyed Lapidary 2
+    </strong></p>
+<p style="clear: left;">You have helped an unlucky artisan. You might get that favour repaid at some point.</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;in search of a Stiff Drink 2&lt;/strong&gt;&lt;br/&gt;Extraordinary thirst demands an extraordinary beverage. &lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage647"><img alt="bottlecrystal - Extraordinary thirst demands an extraordinary beverage. " border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/bottlecrystalsmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>in search of a Stiff Drink 2
+    </strong></p>
+<p style="clear: left;">Extraordinary thirst demands an extraordinary beverage. </p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;Playing with Broken Toys 3 - Toys in brightly coloured boxes&lt;/strong&gt;&lt;br/&gt;A picture of a smiling child. Scraps of cardboard. Cogwheels and porcelain. Something is going on...&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage687"><img alt="toysoldier - A picture of a smiling child. Scraps of cardboard. Cogwheels and porcelain. Something is going on..." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/toysoldiersmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>Playing with Broken Toys 3 - Toys in brightly coloured boxes
+    </strong></p>
+<p style="clear: left;">A picture of a smiling child. Scraps of cardboard. Cogwheels and porcelain. Something is going on...</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;Entwined in the Intrigues of the Clathermont Family 3&lt;/strong&gt;&lt;br/&gt;Often seen at this den of spies, zailors and curiously identical triplets.&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage690"><img alt="tattoo - Often seen at this den of spies, zailors and curiously identical triplets." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/tattoosmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>Entwined in the Intrigues of the Clathermont Family 3
+    </strong></p>
+<p style="clear: left;">Often seen at this den of spies, zailors and curiously identical triplets.</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;Raking the Muck of the Neath 11&lt;/strong&gt;&lt;br/&gt;Assisting journalists of a low and salacious sort.&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage731"><img alt="writer - Assisting journalists of a low and salacious sort." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/writersmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>Raking the Muck of the Neath 11
+    </strong></p>
+<p style="clear: left;">Assisting journalists of a low and salacious sort.</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;Learning from a Silk-clad Expert 2 - Entangled&lt;/strong&gt;&lt;br/&gt;Surely there's no danger. She's only dreamed of the spider council, after all.&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage840"><img alt="expert - Surely there's no danger. She's only dreamed of the spider council, after all." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/expertsmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>Learning from a Silk-clad Expert 2 - Entangled
+    </strong></p>
+<p style="clear: left;">Surely there's no danger. She's only dreamed of the spider council, after all.</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;Collecting Clues for the Clay Coalman 4 - Looking for Secrets in Watchmaker's Hill&lt;/strong&gt;&lt;br/&gt;A Clay Coalman, a cache of clues...&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage940"><img alt="clayman4 - A Clay Coalman, a cache of clues..." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/clayman4small.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>Collecting Clues for the Clay Coalman 4 - Looking for Secrets in Watchmaker's Hill
+    </strong></p>
+<p style="clear: left;">A Clay Coalman, a cache of clues...</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;A Friendship with a Bohemian Sculptress 7 - A Pragmatic Poet for Hire&lt;/strong&gt;&lt;br/&gt;She knows just the right kind of people.&lt;br/&gt;Meet the Sculptress in Veilgarden, or your Lodgings.&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage941"><img alt="lips - She knows just the right kind of people." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/lipssmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>A Friendship with a Bohemian Sculptress 7 - A Pragmatic Poet for Hire
+    </strong></p>
+<p style="clear: left;">She knows just the right kind of people.</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;Befriending a Rooftop Urchin 7 - A prudent advisor&lt;/strong&gt;&lt;br/&gt;A grubby sort, perching on your guttering&lt;br/&gt;Gain this in Spite.&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage942"><img alt="urchin - A grubby sort, perching on your guttering" border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/urchinsmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>Befriending a Rooftop Urchin 7 - A prudent advisor
+    </strong></p>
+<p style="clear: left;">A grubby sort, perching on your guttering</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;Advising the Loquacious Vicar 8 - Making Money from Deviltry&lt;/strong&gt;&lt;br/&gt;A matter of tea and mystery&lt;br/&gt;Gain this by speaking with the Vicar in Ladybones Road.&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage943"><img alt="clergy - A matter of tea and mystery" border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/clergysmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>Advising the Loquacious Vicar 8 - Making Money from Deviltry
+    </strong></p>
+<p style="clear: left;">A matter of tea and mystery</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;Seeing through the Eyes of Icarus 12&lt;/strong&gt;&lt;br/&gt;On a wall was scrawled: 'Icarus returning / longs for the deep places.' But what does it mean?&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage960"><img alt="scrawl1 - On a wall was scrawled: 'Icarus returning / longs for the deep places.' But what does it mean?" border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/scrawl1small.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>Seeing through the Eyes of Icarus 12
+    </strong></p>
+<p style="clear: left;">On a wall was scrawled: 'Icarus returning / longs for the deep places.' But what does it mean?</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;Touched by Fingerwork 10&lt;/strong&gt;&lt;br/&gt;What is it that crawls behind the glass?&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage961"><img alt="mirror4 - What is it that crawls behind the glass?" border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/mirror4small.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>Touched by Fingerwork 10
+    </strong></p>
+<p style="clear: left;">What is it that crawls behind the glass?</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;Walking the Falling Cities 7&lt;/strong&gt;&lt;br/&gt;There were four cities before London. One day you may know all their secrets.&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage962"><img alt="ruins - There were four cities before London. One day you may know all their secrets." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/ruinssmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>Walking the Falling Cities 7
+    </strong></p>
+<p style="clear: left;">There were four cities before London. One day you may know all their secrets.</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;Approaching the Gates of the Garden 8&lt;/strong&gt;&lt;br/&gt;There is a reason that Death shuns the Neath. What is it?&lt;br/&gt;Gain this everywhere there is knowledge of the garden.&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage963"><img alt="skull - There is a reason that Death shuns the Neath. What is it?" border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/skullsmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>Approaching the Gates of the Garden 8
+    </strong></p>
+<p style="clear: left;">There is a reason that Death shuns the Neath. What is it?</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;Mired in Clay 4 - Respected&lt;/strong&gt;&lt;br/&gt;What do the Clay Men want from you? What have you found, down there in the warrens of the Clay Quarters?&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage996"><img alt="clayman - What do the Clay Men want from you? What have you found, down there in the warrens of the Clay Quarters?" border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/claymansmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>Mired in Clay 4 - Respected
+    </strong></p>
+<p style="clear: left;">What do the Clay Men want from you? What have you found, down there in the warrens of the Clay Quarters?</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;Getting to Know Cobblestone Rogues and Back-Alley Saints 6&lt;/strong&gt;&lt;br/&gt;You're learning the names and faces of Fallen London&lt;br/&gt;Gain this through many early storylets, and the Gossip in your lodgings&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage1021"><img alt="fog - You're learning the names and faces of Fallen London" border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/fogsmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>Getting to Know Cobblestone Rogues and Back-Alley Saints 6
+    </strong></p>
+<p style="clear: left;">You're learning the names and faces of Fallen London</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;Family and Law 4 - Finished for the moment&lt;/strong&gt;&lt;br/&gt;Embroiled in a set-to of justice and kinfolk&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage1022"><img alt="heart - Embroiled in a set-to of justice and kinfolk" border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/heartsmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>Family and Law 4 - Finished for the moment
+    </strong></p>
+<p style="clear: left;">Embroiled in a set-to of justice and kinfolk</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;Playing with Soul 4 - Finished for the moment&lt;/strong&gt;&lt;br/&gt;The spirifer and the pianist&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage1025"><img alt="trebleclef - The spirifer and the pianist" border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/trebleclefsmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>Playing with Soul 4 - Finished for the moment
+    </strong></p>
+<p style="clear: left;">The spirifer and the pianist</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;The Blind Pianist and the Sallow Spirifer 1 - Favouring the Pianist&lt;/strong&gt;&lt;br/&gt;Who do you believe?&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage1026"><img alt="pianist - Who do you believe?" border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/pianistsmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>The Blind Pianist and the Sallow Spirifer 1 - Favouring the Pianist
+    </strong></p>
+<p style="clear: left;">Who do you believe?</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;A Marked Month 1&lt;/strong&gt;&lt;br/&gt;Seeking the counsel of the calendar&lt;br/&gt;Gain this by waiting for opportunities to investigate the Affluent Photographer.&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage1041"><img alt="warning - Seeking the counsel of the calendar" border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/warningsmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>A Marked Month 1
+    </strong></p>
+<p style="clear: left;">Seeking the counsel of the calendar</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;The Photographer and the Contrarian 1 - Favouring the Affluent Photographer&lt;/strong&gt;&lt;br/&gt;Two faces and you&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage1042"><img alt="boho8 - Two faces and you" border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/boho8small.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>The Photographer and the Contrarian 1 - Favouring the Affluent Photographer
+    </strong></p>
+<p style="clear: left;">Two faces and you</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;Acquaintance: the Honey-Addled Detective 1 - He is prepared to work with you.&lt;/strong&gt;&lt;br/&gt;An elegant wreck of a man, like a lightning-struck chateau&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage10852"><img alt="honeydetective - An elegant wreck of a man, like a lightning-struck chateau" border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/honeydetectivesmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>Acquaintance: the Honey-Addled Detective 1 - He is prepared to work with you.
+    </strong></p>
+<p style="clear: left;">An elegant wreck of a man, like a lightning-struck chateau</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;Acquaintance: the Starving Poet 2 - The Starving Poet escaped... for now, at least.&lt;/strong&gt;&lt;br/&gt;A poor sort of revolutionary.&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage10869"><img alt=" - A poor sort of revolutionary." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/placeholder2small.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>Acquaintance: the Starving Poet 2 - The Starving Poet escaped... for now, at least.
+    </strong></p>
+<p style="clear: left;">A poor sort of revolutionary.</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;a Fully Informed Citizen of Fallen London 2&lt;/strong&gt;&lt;br/&gt;This quality keeps you up to date with announcements.&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage11002"><img alt="declaim - This quality keeps you up to date with announcements." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/declaimsmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>a Fully Informed Citizen of Fallen London 2
+    </strong></p>
+<p style="clear: left;">This quality keeps you up to date with announcements.</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;a Connoisseur of Neathy Delights 5&lt;/strong&gt;&lt;br/&gt;You have experienced some of rarest pleasures of the Neath.&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage12620"><img alt="cherries - You have experienced some of rarest pleasures of the Neath." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/cherriessmall.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>a Connoisseur of Neathy Delights 5
+    </strong></p>
+<p style="clear: left;">You have experienced some of rarest pleasures of the Neath.</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;A Participant in the Underground Leagues of Knife-and-Candle 1&lt;/strong&gt;&lt;br/&gt;How long has this been going on? [You may retire at any time by using the storylet in Watchmaker's Hill.]&lt;br/&gt;Want to join? Find another participant in the community, and ask for an invite...&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage17766"><img alt="master2 - How long has this been going on? [You may retire at any time by using the storylet in Watchmaker's Hill.]" border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/master2small.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>A Participant in the Underground Leagues of Knife-and-Candle 1
+    </strong></p>
+<p style="clear: left;">How long has this been going on? [You may retire at any time by using the storylet in Watchmaker's Hill.]</p></div>
+</div>
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a (1)< class="tooltip " li nable pas-prix sir" title="&lt;strong&gt;You have a Knife-and-Candle Pact with...…&lt;/strong&gt;&lt;br/&gt;&lt;strong&gt;You have a Knife-and-Candle Pact with...:&lt;/strong&gt;&lt;ul class='relationship-list'&gt;&lt;li&gt;"></a></li></ul>"&gt;<div class="ql" id=""></div><div id="infoBarQImage20418"><img alt=" - " border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/placeholder2small.png" width="40"/></div></div>
+<div class="qualities_rhs"><p><strong>You have a Knife-and-Candle Pact with...…
+    </strong></p>
+<p style="clear: left;"></p></div>
+</div>
+</div>
+<h3 class="qualityCategory">
+<span class="contract" style="display: none; cursor: pointer;">-</span>
+<span class="expand" style="cursor: pointer;">+</span>
+                     
+                    <a href="#" style="color: black">Venture</a>
+</h3>
+<div class="qualitiesToggleDiv">
+<div class="qualities">
+<div class="qualities_lhs"><ul class="you_icon"><li><a class="tooltip " title="&lt;strong&gt;Seduction: Honey-sipping heiress 6 - Days of Honey and Roses&lt;/strong&gt;&lt;br/&gt;A charming young woman.&lt;br/&gt;"><div class="ql" id=""></div><div id="infoBarQImage252"><img alt="bohogirl2 - A charming young woman." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/bohogirl2small.png" width="40"/></div></a></li></ul></div>
+<div class="qualities_rhs"><p><strong>Seduction: Honey-sipping heiress 6 - Days of Honey and Roses
+    </strong></p>
+<p style="clear: left;">A charming young woman.</p></div>
+</div>
+</div>
+<!--YOU LHS BOTTOM END-->
+</div>
+<!--YOU LHS BOTTOM END-->
+<!--YOU RHS BOTTOM STARTS-->
+<div class="you_bottom_rhs">
+<!--YOU RHS BOTTOM STARTS-->
+<h2 class="redesign">INVENTORY</h2>
+<p class="explanation" style="margin-top:-10px;">Click on green-bordered items to use them!</p>
+<h3 style="float:left;margin:5px 0px 0px 0px"> Curiosity</h3>
+<ul class="you_icon">
+<li><a class="tooltip usableitem" onclick="loadMainContent('/Storylet/UseQuality?qualityId=529',null);" title="&lt;strong&gt;1 x Black Wings Absinthe&lt;/strong&gt;&lt;br/&gt;Another of Mr Wines' creations. Is the liquid in the bottle actually moving independently? It's hard to be sure.&lt;br/&gt;&lt;br&gt;&lt;strong&gt;Click on this item in your inventory to use it.&lt;/strong&gt;&lt;/br&gt;"><div class="qq" id="">1</div><div id="infoBarQImage529"><img alt="bottleblack - Another of Mr Wines' creations. Is the liquid in the bottle actually moving independently? It's hard to be sure." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/bottleblacksmall.png" width="40"/></div></a></li><li><a class="tooltip usableitem" onclick="loadMainContent('/Storylet/UseQuality?qualityId=413',null);" title="&lt;strong&gt;1 x Counterfeit Head of John the Baptist&lt;/strong&gt;&lt;br/&gt;Obviously an inferior imitation. It can be a ward of sorts in Knife-and-Candle.&lt;br/&gt;&lt;br&gt;&lt;strong&gt;Click on this item in your inventory to use it.&lt;/strong&gt;&lt;/br&gt;"><div class="qq" id="">1</div><div id="infoBarQImage413"><img alt="head - Obviously an inferior imitation. It can be a ward of sorts in Knife-and-Candle." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/headsmall.png" width="40"/></div></a></li><li><a class="tooltip usableitem" onclick="loadMainContent('/Storylet/UseQuality?qualityId=618',null);" title="&lt;strong&gt;1 x Dark-dewed Cherries&lt;/strong&gt;&lt;br/&gt;Fresh fruit! Down here? On which strange tree did these little beauties grow?&lt;br/&gt;&lt;br&gt;&lt;strong&gt;Click on this item in your inventory to use it.&lt;/strong&gt;&lt;/br&gt;"><div class="qq" id="">1</div><div id="infoBarQImage618"><img alt="cherries - Fresh fruit! Down here? On which strange tree did these little beauties grow?" border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/cherriessmall.png" width="40"/></div></a></li><li><a class="tooltip usableitem" onclick="loadMainContent('/Storylet/UseQuality?qualityId=582',null);" title="&lt;strong&gt;82 x First City Coin&lt;/strong&gt;&lt;br/&gt;One side bears what might be a cedar tree. You've never met anyone who can read the script on the other side.&lt;br/&gt;&lt;br&gt;&lt;strong&gt;Click on this item in your inventory to use it.&lt;/strong&gt;&lt;/br&gt;"><div class="qq" id="">82</div><div id="infoBarQImage582"><img alt="coin - One side bears what might be a cedar tree. You've never met anyone who can read the script on the other side." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/coinsmall.png" width="40"/></div></a></li><li><a class="tooltip usableitem" onclick="loadMainContent('/Storylet/UseQuality?qualityId=983',null);" title="&lt;strong&gt;1 x Glimpse of Something Larger&lt;/strong&gt;&lt;br/&gt;The Mottled Man, the Jade Bird - you're on the edge of a deep mystery, here... [click on this in your inventory to delve deeper]&lt;br/&gt;&lt;br&gt;&lt;strong&gt;Click on this item in your inventory to use it.&lt;/strong&gt;&lt;/br&gt;"><div class="qq" id="">1</div><div id="infoBarQImage983"><img alt="eye - The Mottled Man, the Jade Bird - you're on the edge of a deep mystery, here... [click on this in your inventory to delve deeper]" border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/eyesmall.png" width="40"/></div></a></li><li><a class="tooltip usableitem" onclick="loadMainContent('/Storylet/UseQuality?qualityId=710',null);" title="&lt;strong&gt;1 x Key to a Handsome Townhouse&lt;/strong&gt;&lt;br/&gt;A fine and respectable key to a fine and respectable house [Using this will change your current lodgings to your Handsome Townhouse]&lt;br/&gt;&lt;br&gt;&lt;strong&gt;Click on this item in your inventory to use it.&lt;/strong&gt;&lt;/br&gt;"><div class="qq" id="">1</div><div id="infoBarQImage710"><img alt="keygold - A fine and respectable key to a fine and respectable house [Using this will change your current lodgings to your Handsome Townhouse]" border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/keygoldsmall.png" width="40"/></div></a></li><li><a class="tooltip usableitem" onclick="loadMainContent('/Storylet/UseQuality?qualityId=705',null);" title="&lt;strong&gt;1 x Key to a Rooftop Shack&lt;/strong&gt;&lt;br/&gt;Smells of smoke and bats [Using this will change your current lodgings to your Rooftop Shack]&lt;br/&gt;&lt;br&gt;&lt;strong&gt;Click on this item in your inventory to use it.&lt;/strong&gt;&lt;/br&gt;"><div class="qq" id="">1</div><div id="infoBarQImage705"><img alt="key - Smells of smoke and bats [Using this will change your current lodgings to your Rooftop Shack]" border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/keysmall.png" width="40"/></div></a></li><li><a class="tooltip usableitem" onclick="loadMainContent('/Storylet/UseQuality?qualityId=704',null);" title="&lt;strong&gt;1 x Key to a Smoky Flophouse&lt;/strong&gt;&lt;br/&gt;Old and warped, but so is the lock it opens [Using this will change your current lodgings to your Smoky Flophouse]&lt;br/&gt;&lt;br&gt;&lt;strong&gt;Click on this item in your inventory to use it.&lt;/strong&gt;&lt;/br&gt;"><div class="qq" id="">1</div><div id="infoBarQImage704"><img alt="key - Old and warped, but so is the lock it opens [Using this will change your current lodgings to your Smoky Flophouse]" border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/keysmall.png" width="40"/></div></a></li><li><a class="tooltip usableitem" onclick="loadMainContent('/Storylet/UseQuality?qualityId=706',null);" title="&lt;strong&gt;1 x Key to your Cottage by the Observatory&lt;/strong&gt;&lt;br/&gt;The key's teeth resemble a sorrow-spider's fangs [Using this will change your current lodgings to your Cottage by the Observatory]&lt;br/&gt;&lt;br&gt;&lt;strong&gt;Click on this item in your inventory to use it.&lt;/strong&gt;&lt;/br&gt;"><div class="qq" id="">1</div><div id="infoBarQImage706"><img alt="keysteel - The key's teeth resemble a sorrow-spider's fangs [Using this will change your current lodgings to your Cottage by the Observatory]" border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/keysteelsmall.png" width="40"/></div></a></li><li><a class="tooltip usableitem" onclick="loadMainContent('/Storylet/UseQuality?qualityId=707',null);" title="&lt;strong&gt;1 x Key to your Rooms above a Bookshop&lt;/strong&gt;&lt;br/&gt;Dusty and tear-stained [Using this will change your current lodgings to your Rooms above a Bookshop]&lt;br/&gt;&lt;br&gt;&lt;strong&gt;Click on this item in your inventory to use it.&lt;/strong&gt;&lt;/br&gt;"><div class="qq" id="">1</div><div id="infoBarQImage707"><img alt="keysteel - Dusty and tear-stained [Using this will change your current lodgings to your Rooms above a Bookshop]" border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/keysteelsmall.png" width="40"/></div></a></li><li><a class="tooltip usableitem" onclick="loadMainContent('/Storylet/UseQuality?qualityId=708',null);" title="&lt;strong&gt;1 x Key to your Rooms above a Gambling Den&lt;/strong&gt;&lt;br/&gt;Worn, as if touched by many hands [Using this will change your current lodgings to your Rooms above a Gambling Den]&lt;br/&gt;&lt;br&gt;&lt;strong&gt;Click on this item in your inventory to use it.&lt;/strong&gt;&lt;/br&gt;"><div class="qq" id="">1</div><div id="infoBarQImage708"><img alt="keysilver - Worn, as if touched by many hands [Using this will change your current lodgings to your Rooms above a Gambling Den]" border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/keysilversmall.png" width="40"/></div></a></li><li><a class="tooltip " title="&lt;strong&gt;1 x A Clandestine Rendezvous at Watchmaker's Hill&lt;/strong&gt;&lt;br/&gt;'Be at this place, at this time...' [This will allow you to choose a Connected Pet if you travel to Watchmaker's Hill]&lt;br/&gt;"><div class="qq" id="">1</div><div id="infoBarQImage976"><img alt="watchmakershill - 'Be at this place, at this time...' [This will allow you to choose a Connected Pet if you travel to Watchmaker's Hill]" border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/watchmakershillsmall.png" width="40"/></div></a></li><li><a class="tooltip " title="&lt;strong&gt;2 x Broken Toy&lt;/strong&gt;&lt;br/&gt;What could be more charming than this painted tin reminder of childhood innocence?&lt;br/&gt;"><div class="qq" id="">2</div><div id="infoBarQImage688"><img alt="toysoldier - What could be more charming than this painted tin reminder of childhood innocence?" border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/toysoldiersmall.png" width="40"/></div></a></li><li><a class="tooltip " title="&lt;strong&gt;20 x Carnival Ticket&lt;/strong&gt;&lt;br/&gt;'Allowing entrance to the WONDERS and MARVELS of Mrs Plenty's MOST DISTRACTING CARNIVAL.'&lt;br/&gt;"><div class="qq" id="">20</div><div id="infoBarQImage537"><img alt="ticket - 'Allowing entrance to the WONDERS and MARVELS of Mrs Plenty's MOST DISTRACTING CARNIVAL.'" border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/ticketsmall.png" width="40"/></div></a></li><li><a class="tooltip " title="&lt;strong&gt;1 x Case-Notes&lt;/strong&gt;&lt;br/&gt;Memoirs of a certain mystery.&lt;br/&gt;"><div class="qq" id="">1</div><div id="infoBarQImage11257"><img alt="writer - Memoirs of a certain mystery." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/writersmall.png" width="40"/></div></a></li><li><a class="tooltip " title="&lt;strong&gt;1 x Exquisite Toy&lt;/strong&gt;&lt;br/&gt;A beautifully-crafted clockwork and porcelain wonder.&lt;br/&gt;"><div class="qq" id="">1</div><div id="infoBarQImage689"><img alt="angel - A beautifully-crafted clockwork and porcelain wonder." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/angelsmall.png" width="40"/></div></a></li><li><a class="tooltip " title="&lt;strong&gt;4 x Iron Knife Token&lt;/strong&gt;&lt;br/&gt;Possession of one of these - or more than one - marks you as a participant in the underground leagues of Knife-and-Candle. Shhh. [If you lose all of them, you will be eliminated, unless you are in the Moon League.]&lt;br/&gt;These Tokens are required for many Knife-and-Candle activities. You can gain them by defeating NPCs and other players; you will also receive three every 72 hours.&lt;br/&gt;"><div class="qq" id="">4</div><div id="infoBarQImage12424"><img alt="knifetoken - Possession of one of these - or more than one - marks you as a participant in the underground leagues of Knife-and-Candle. Shhh. [If you lose all of them, you will be eliminated, unless you are in the Moon League.]" border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/knifetokensmall.png" width="40"/></div></a></li><li><a class="tooltip " title="&lt;strong&gt;3 x Night on the Town&lt;/strong&gt;&lt;br/&gt;The necessary arrangements for a box at the opera and an elegant supper for two. Or a boozy knees-up for forty. [This is mainly used for creating advanced items - such as charming the Artist's Model.] J&lt;br/&gt;Journalists will periodically receive these.&lt;br/&gt;"><div class="qq" id="">3</div><div id="infoBarQImage735"><img alt="dance - The necessary arrangements for a box at the opera and an elegant supper for two. Or a boozy knees-up for forty. [This is mainly used for creating advanced items - such as charming the Artist's Model.] J" border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/dancesmall.png" width="40"/></div></a></li><li><a class="tooltip " title="&lt;strong&gt;1 x Note: A Meeting in the Forgotten Quarter&lt;/strong&gt;&lt;br/&gt;'I understand you wish to speak with me. I shall be waiting for you at the Fountain of Names in the Forgotten Quarter, at noon on Wednesday. Come alone.'&lt;br/&gt;"><div class="qq" id="">1</div><div id="infoBarQImage399"><img alt="envelope - 'I understand you wish to speak with me. I shall be waiting for you at the Fountain of Names in the Forgotten Quarter, at noon on Wednesday. Come alone.'" border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/envelopesmall.png" width="40"/></div></a></li><li><a class="tooltip " title="&lt;strong&gt;1 x On the Maladies of Goats, volume 1&lt;/strong&gt;&lt;br/&gt;A grubby book containing a rare and precious address.&lt;br/&gt;"><div class="qq" id="">1</div><div id="infoBarQImage398"><img alt="book - A grubby book containing a rare and precious address." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/booksmall.png" width="40"/></div></a></li><li><a class="tooltip " title="&lt;strong&gt;3 x Prize Token&lt;/strong&gt;&lt;br/&gt;Find enough of these, and you may redeemed at the Gamekeeper's Cottage. You may steal them using any of the standard attacks.&lt;br/&gt;Occasionally, the Committee will issue these to all: when they do, you may take them from defeated foes.&lt;br/&gt;"><div class="qq" id="">3</div><div id="infoBarQImage18458"><img alt="medalgiftsilver - Find enough of these, and you may redeemed at the Gamekeeper's Cottage. You may steal them using any of the standard attacks." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/medalgiftsilversmall.png" width="40"/></div></a></li><li><a class="tooltip " title="&lt;strong&gt;8 x Sapphire&lt;/strong&gt;&lt;br/&gt;They import these things from the Carnelian Coast. But they're sapphires. Clear? Excellent.&lt;br/&gt;You can win these with an outstanding performance when lizard-throwing at Mrs. Plenty's Carnival. If you are a Person of Some Importance you can also buy them at Empire Adornments in the Bazaar Sidestreets.&lt;br/&gt;"><div class="qq" id="">8</div><div id="infoBarQImage643"><img alt="sapphire - They import these things from the Carnelian Coast. But they're sapphires. Clear? Excellent." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/sapphiresmall.png" width="40"/></div></a></li><li><a class="tooltip " title="&lt;strong&gt;1 x Scowling Flint Idol&lt;/strong&gt;&lt;br/&gt;Is that a face? How can you tell it's scowling? And yet -&lt;br/&gt;"><div class="qq" id="">1</div><div id="infoBarQImage620"><img alt="idolface - Is that a face? How can you tell it's scowling? And yet -" border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/idolfacesmall.png" width="40"/></div></a></li>
+<li><a href=""></a></li></ul>
+<h3 style="float:left;margin:5px 0px 0px 0px"> Advantage</h3>
+<ul class="you_icon">
+<li><a class="tooltip " title="&lt;strong&gt;20 x Confident Smile&lt;/strong&gt;&lt;br/&gt;Your self-assurance is beguiling. Gives a second chance on Persuasive challenges.&lt;br/&gt;Acquire these by attending to matters of society and scandal at your Lodgings.&lt;br/&gt;"><div class="qq" id="infoBarQAdvantage370">20</div><div id="infoBarQImage370"><img alt="eyelash - Your self-assurance is beguiling. Gives a second chance on Persuasive challenges." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/eyelashsmall.png" width="40"/></div></a></li><li><a class="tooltip " title="&lt;strong&gt;5 x Hard-Earned Lesson&lt;/strong&gt;&lt;br/&gt;You're bruised, but you'll see that trick coming next time.&lt;br/&gt;Acquire these by inviting a friend to join you in something potentially dangerous at your Lodgings.&lt;br/&gt;"><div class="qq" id="infoBarQAdvantage418">5</div><div id="infoBarQImage418"><img alt="fist - You're bruised, but you'll see that trick coming next time." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/fistsmall.png" width="40"/></div></a></li>
+<li><a href=""></a></li>
+<li><a href=""></a></li>
+<li><a href=""></a></li>
+<li><a href=""></a></li></ul>
+<h3 style="float:left;margin:5px 0px 0px 0px"> Goods</h3>
+<ul class="you_icon">
+<li><a class="tooltip " title="&lt;strong&gt;3 x Certifiable Scrap&lt;/strong&gt;&lt;br/&gt;Perhaps Mr Cups will recognise this as something delightful. [When the Relickers appear, you'll be able to trade these Scraps for many things...]&lt;br/&gt;"><div class="qq" id="">3</div><div id="infoBarQImage918"><img alt="sack - Perhaps Mr Cups will recognise this as something delightful. [When the Relickers appear, you'll be able to trade these Scraps for many things...]" border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/sacksmall.png" width="40"/></div></a></li><li><a class="tooltip " title="&lt;strong&gt;9 x Expedition Supplies&lt;/strong&gt;&lt;br/&gt;Tools, assistants, victuals, knowledge, fresh water, messenger-bats... it takes time and effort to bring these to the Forgotten Quarter.&lt;br/&gt;Purchase these before you begin an Expedition. If you run out, the Expedition will end.&lt;br/&gt;"><div class="qq" id="">9</div><div id="infoBarQImage23163"><img alt="toolbox - Tools, assistants, victuals, knowledge, fresh water, messenger-bats... it takes time and effort to bring these to the Forgotten Quarter." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/toolboxsmall.png" width="40"/></div></a></li><li><a class="tooltip " title="&lt;strong&gt;256 x Moon-pearl&lt;/strong&gt;&lt;br/&gt;Down here, these are the only way to know what phase the moon is in.&lt;br/&gt;"><div class="qq" id="">256</div><div id="infoBarQImage379"><img alt="moonpearl - Down here, these are the only way to know what phase the moon is in." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/moonpearlsmall.png" width="40"/></div></a></li><li><a class="tooltip " title="&lt;strong&gt;500 x Nevercold Brass Sliver&lt;/strong&gt;&lt;br/&gt;Hell's chief export. You thought that was souls? No, they don't &lt;em&gt;export&lt;/em&gt; souls.&lt;br/&gt;"><div class="qq" id="">500</div><div id="infoBarQImage387"><img alt="nevercold_brass - Hell's chief export. You thought that was souls? No, they don't &lt;em&gt;export&lt;/em&gt; souls." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/nevercold_brasssmall.png" width="40"/></div></a></li><li><a class="tooltip " title="&lt;strong&gt;2 x Rat on a String&lt;/strong&gt;&lt;br/&gt;A sad little furry body ready to be turned in for the reward, or boiled as the starring ingredient in a tasty stew.&lt;br/&gt;"><div class="qq" id="">2</div><div id="infoBarQImage376"><img alt="ratsstring - A sad little furry body ready to be turned in for the reward, or boiled as the starring ingredient in a tasty stew." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/ratsstringsmall.png" width="40"/></div></a></li><li><a class="tooltip " title="&lt;strong&gt;4 x Rattus Faber Corpse&lt;/strong&gt;&lt;br/&gt;The bounty on these things is substantial. No wonder. Look at that glazed, sinister ratty eye! Look at the wicked edge on that tiny knife!&lt;br/&gt;"><div class="qq" id="">4</div><div id="infoBarQImage14620"><img alt="rat2 - The bounty on these things is substantial. No wonder. Look at that glazed, sinister ratty eye! Look at the wicked edge on that tiny knife!" border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/rat2small.png" width="40"/></div></a></li><li><a class="tooltip " title="&lt;strong&gt;5 x Relic of the Fourth City&lt;/strong&gt;&lt;br/&gt;Horsehead amulets carved from bone and blue-glazed potsherds&lt;br/&gt;"><div class="qq" id="">5</div><div id="infoBarQImage423"><img alt="horsehead - Horsehead amulets carved from bone and blue-glazed potsherds" border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/horseheadsmall.png" width="40"/></div></a></li><li><a class="tooltip " title="&lt;strong&gt;10 x Relic of the Second City&lt;/strong&gt;&lt;br/&gt;Gypsum heads and indecipherable clay tablets&lt;br/&gt;"><div class="qq" id="">10</div><div id="infoBarQImage425"><img alt="tablet - Gypsum heads and indecipherable clay tablets" border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/tabletsmall.png" width="40"/></div></a></li><li><a class="tooltip " title="&lt;strong&gt;100 x Rostygold&lt;/strong&gt;&lt;br/&gt;Traditionally, you're paid in this if you kill something. Note: may not contain actual gold.&lt;br/&gt;Many tasks in Watchmaker's Hill pay out in rostygold.&lt;br/&gt;"><div class="qq" id="">100</div><div id="infoBarQImage375"><img alt="red_gold - Traditionally, you're paid in this if you kill something. Note: may not contain actual gold." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/red_goldsmall.png" width="40"/></div></a></li><li><a class="tooltip " title="&lt;strong&gt;100 x Surface Currency&lt;/strong&gt;&lt;br/&gt;Pounds, francs, dollars, piastres...for spies, collectors and patriots.&lt;br/&gt;"><div class="qq" id="">100</div><div id="infoBarQImage421"><img alt="furtivehand - Pounds, francs, dollars, piastres...for spies, collectors and patriots." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/furtivehandsmall.png" width="40"/></div></a></li>
+<li><a href=""></a></li>
+<li><a href=""></a></li></ul>
+<h3 style="float:left;margin:5px 0px 0px 0px"> Academic</h3>
+<ul class="you_icon">
+<li><a class="tooltip usableitem" onclick="loadMainContent('/Storylet/UseQuality?qualityId=374',null);" title="&lt;strong&gt;407 x Foxfire Candle Stub&lt;/strong&gt;&lt;br/&gt;Named for its eery greenish glow. It's not made out of foxes.&lt;br/&gt;&lt;br&gt;&lt;strong&gt;Click on this item in your inventory to use it.&lt;/strong&gt;&lt;/br&gt;"><div class="qq" id="">407</div><div id="infoBarQImage374"><img alt="demetergreen - Named for its eery greenish glow. It's not made out of foxes." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/demetergreensmall.png" width="40"/></div></a></li><li><a class="tooltip usableitem" onclick="loadMainContent('/Storylet/UseQuality?qualityId=476',null);" title="&lt;strong&gt;11 x Abominable Salts&lt;/strong&gt;&lt;br/&gt;WARNING: consumption may cause vomiting, paralysis, and ennui.&lt;br/&gt;Create this by using other Academic items in your inventory.&lt;br/&gt;&lt;br&gt;&lt;strong&gt;Click on this item in your inventory to use it.&lt;/strong&gt;&lt;/br&gt;"><div class="qq" id="">11</div><div id="infoBarQImage476"><img alt="vialgreen - WARNING: consumption may cause vomiting, paralysis, and ennui." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/vialgreensmall.png" width="40"/></div></a></li><li><a class="tooltip usableitem" onclick="loadMainContent('/Storylet/UseQuality?qualityId=825',null);" title="&lt;strong&gt;1 x Memory of Distant Shores&lt;/strong&gt;&lt;br/&gt;Your memories of the lands across the Unterzee are something extraordinary. You can spin them into a tale to delight listeners.&lt;br/&gt;Create this by using other Academic items in your inventory.&lt;br/&gt;&lt;br&gt;&lt;strong&gt;Click on this item in your inventory to use it.&lt;/strong&gt;&lt;/br&gt;"><div class="qq" id="">1</div><div id="infoBarQImage825"><img alt="wake - Your memories of the lands across the Unterzee are something extraordinary. You can spin them into a tale to delight listeners." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/wakesmall.png" width="40"/></div></a></li>
+<li><a href=""></a></li>
+<li><a href=""></a></li>
+<li><a href=""></a></li></ul>
+<h3 style="float:left;margin:5px 0px 0px 0px"> Cartography</h3>
+<ul class="you_icon">
+<li><a class="tooltip usableitem" onclick="loadMainContent('/Storylet/UseQuality?qualityId=378',null);" title="&lt;strong&gt;1 x Glim&lt;/strong&gt;&lt;br/&gt;The jewels of the Unterzee! Or possibly shards of phosphorescent insect chitin. Authorities differ.&lt;br/&gt;&lt;br&gt;&lt;strong&gt;Click on this item in your inventory to use it.&lt;/strong&gt;&lt;/br&gt;"><div class="qq" id="">1</div><div id="infoBarQImage378"><img alt="shard - The jewels of the Unterzee! Or possibly shards of phosphorescent insect chitin. Authorities differ." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/shardsmall.png" width="40"/></div></a></li><li><a class="tooltip usableitem" onclick="loadMainContent('/Storylet/UseQuality?qualityId=920',null);" title="&lt;strong&gt;26 x Map Scrap&lt;/strong&gt;&lt;br/&gt;Enough of these, and you'll know the secrets of earth and sea.&lt;br/&gt;Create this by using other Cartography items in your inventory.&lt;br/&gt;&lt;br&gt;&lt;strong&gt;Click on this item in your inventory to use it.&lt;/strong&gt;&lt;/br&gt;"><div class="qq" id="">26</div><div id="infoBarQImage920"><img alt="map - Enough of these, and you'll know the secrets of earth and sea." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/mapsmall.png" width="40"/></div></a></li><li><a class="tooltip usableitem" onclick="loadMainContent('/Storylet/UseQuality?qualityId=831',null);" title="&lt;strong&gt;1 x Zee-Ztory&lt;/strong&gt;&lt;br/&gt;Strange truths are told of the waves and what lies beneath. The lies are even stranger.&lt;br/&gt;Create this by using other Cartography items in your inventory.&lt;br/&gt;&lt;br&gt;&lt;strong&gt;Click on this item in your inventory to use it.&lt;/strong&gt;&lt;/br&gt;"><div class="qq" id="">1</div><div id="infoBarQImage831"><img alt="waves3 - Strange truths are told of the waves and what lies beneath. The lies are even stranger." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/waves3small.png" width="40"/></div></a></li>
+<li><a href=""></a></li>
+<li><a href=""></a></li>
+<li><a href=""></a></li></ul>
+<h3 style="float:left;margin:5px 0px 0px 0px"> Contraband</h3>
+<ul class="you_icon">
+<li><a class="tooltip " title="&lt;strong&gt;8 x Flawed Diamond&lt;/strong&gt;&lt;br/&gt;Why are diamonds so hard to find down here? Does Mr Stones really keep them all for itself?&lt;br/&gt;You can acquire these in various opportunities around the city. If you are a Person of Some Importance you can also buy them at Empire Adornments in the Bazaar Sidestreets.&lt;br/&gt;"><div class="qq" id="">8</div><div id="infoBarQImage449"><img alt="diamond - Why are diamonds so hard to find down here? Does Mr Stones really keep them all for itself?" border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/diamondsmall.png" width="40"/></div></a></li><li><a class="tooltip " title="&lt;strong&gt;10 x Ostentatious Diamond&lt;/strong&gt;&lt;br/&gt;Oh, I say.&lt;br/&gt;You can acquire these in various opportunities around the city. If you are a Person of Some Importance you can also buy them at Empire Adornments in the Bazaar Sidestreets. Expeditions in the Forgotten Quarter occasionally uncover them.&lt;br/&gt;"><div class="qq" id="">10</div><div id="infoBarQImage12186"><img alt="diamondblue - Oh, I say." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/diamondbluesmall.png" width="40"/></div></a></li><li><a class="tooltip " title="&lt;strong&gt;3 x Magnificent Diamond&lt;/strong&gt;&lt;br/&gt;Like a lost star, right there in your palm.&lt;br/&gt;Gain Magnificent Diamonds from certain major crimes, or from the Cheery Gentleman with Nex. Expeditions in the Forgotten Quarter occasionally uncover them.&lt;br/&gt;"><div class="qq" id="">3</div><div id="infoBarQImage12188"><img alt="diamondred - Like a lost star, right there in your palm." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/diamondredsmall.png" width="40"/></div></a></li>
+<li><a href=""></a></li>
+<li><a href=""></a></li>
+<li><a href=""></a></li></ul>
+<h3 style="float:left;margin:5px 0px 0px 0px"> Elder</h3>
+<ul class="you_icon">
+<li><a class="tooltip usableitem" onclick="loadMainContent('/Storylet/UseQuality?qualityId=377',null);" title="&lt;strong&gt;74 x Jade Fragment&lt;/strong&gt;&lt;br/&gt;So shiny! It's fossilized souls, you know.&lt;br/&gt;You can buy this from the Bazaar, or use the Implacable Detective's Business Card.&lt;br/&gt;&lt;br&gt;&lt;strong&gt;Click on this item in your inventory to use it.&lt;/strong&gt;&lt;/br&gt;"><div class="qq" id="">74</div><div id="infoBarQImage377"><img alt="jade - So shiny! It's fossilized souls, you know." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/jadesmall.png" width="40"/></div></a></li><li><a class="tooltip usableitem" onclick="loadMainContent('/Storylet/UseQuality?qualityId=424',null);" title="&lt;strong&gt;25 x Relic of the Third City&lt;/strong&gt;&lt;br/&gt;Cinnabar beads and little square granite gods&lt;br/&gt;Create this by using other Elder items in your inventory.&lt;br/&gt;&lt;br&gt;&lt;strong&gt;Click on this item in your inventory to use it.&lt;/strong&gt;&lt;/br&gt;"><div class="qq" id="">25</div><div id="infoBarQImage424"><img alt="idol - Cinnabar beads and little square granite gods" border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/idolsmall.png" width="40"/></div></a></li><li><a class="tooltip usableitem" onclick="loadMainContent('/Storylet/UseQuality?qualityId=587',null);" title="&lt;strong&gt;2 x Mystery of the Elder Continent&lt;/strong&gt;&lt;br/&gt;An intriguing scrap of knowledge about a place far across the Unterzee. What can it mean?&lt;br/&gt;Create this by using other Elder items in your inventory. Opportunities to acquire these can be found by increasing your connections to the Rubbery Men, Revolutionaries, Urchins and Hell.&lt;br/&gt;&lt;br&gt;&lt;strong&gt;Click on this item in your inventory to use it.&lt;/strong&gt;&lt;/br&gt;"><div class="qq" id="">2</div><div id="infoBarQImage587"><img alt="volcano - An intriguing scrap of knowledge about a place far across the Unterzee. What can it mean?" border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/volcanosmall.png" width="40"/></div></a></li><li><a class="tooltip usableitem" onclick="loadMainContent('/Storylet/UseQuality?qualityId=852',null);" title="&lt;strong&gt;1 x Presbyterate Passphrase&lt;/strong&gt;&lt;br/&gt;A formula that can be used, once, for a peculiar purpose in the distant Presbyterate.&lt;br/&gt;Create this by using other Elder items in your inventory.&lt;br/&gt;&lt;br&gt;&lt;strong&gt;Click on this item in your inventory to use it.&lt;/strong&gt;&lt;/br&gt;"><div class="qq" id="">1</div><div id="infoBarQImage852"><img alt="graffitihiero - A formula that can be used, once, for a peculiar purpose in the distant Presbyterate." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/graffitihierosmall.png" width="40"/></div></a></li>
+<li><a href=""></a></li>
+<li><a href=""></a></li></ul>
+<h3 style="float:left;margin:5px 0px 0px 0px"> Infernal</h3>
+<ul class="you_icon">
+<li><a class="tooltip usableitem" onclick="loadMainContent('/Storylet/UseQuality?qualityId=386',null);" title="&lt;strong&gt;5 x Soul&lt;/strong&gt;&lt;br/&gt;It's not strictly legal to trade these without a licence, you know. But it's profitable.&lt;br/&gt;&lt;br&gt;&lt;strong&gt;Click on this item in your inventory to use it.&lt;/strong&gt;&lt;/br&gt;"><div class="qq" id="">5</div><div id="infoBarQImage386"><img alt="bottledsoul - It's not strictly legal to trade these without a licence, you know. But it's profitable." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/bottledsoulsmall.png" width="40"/></div></a></li><li><a class="tooltip usableitem" onclick="loadMainContent('/Storylet/UseQuality?qualityId=928',null);" title="&lt;strong&gt;64 x Amanita Sherry&lt;/strong&gt;&lt;br/&gt;You might drink this if you were a devil. Or if you hadn't learnt to read labels.&lt;br/&gt;Create this by using other Infernal items in your inventory.&lt;br/&gt;&lt;br&gt;&lt;strong&gt;Click on this item in your inventory to use it.&lt;/strong&gt;&lt;/br&gt;"><div class="qq" id="">64</div><div id="infoBarQImage928"><img alt="bottlered - You might drink this if you were a devil. Or if you hadn't learnt to read labels." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/bottleredsmall.png" width="40"/></div></a></li><li><a class="tooltip usableitem" onclick="loadMainContent('/Storylet/UseQuality?qualityId=668',null);" title="&lt;strong&gt;5 x Brilliant Soul&lt;/strong&gt;&lt;br/&gt;This was the soul of someone exceptional. A priest? A poet? A murderer of distinction?&lt;br/&gt;Create this by using Amanita Sherry in your inventory (you can gain Amanita Sherry from using ordinary Bottled Souls). &lt;br/&gt;&lt;br&gt;&lt;strong&gt;Click on this item in your inventory to use it.&lt;/strong&gt;&lt;/br&gt;"><div class="qq" id="">5</div><div id="infoBarQImage668"><img alt="bottledsoulblue - This was the soul of someone exceptional. A priest? A poet? A murderer of distinction?" border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/bottledsoulbluesmall.png" width="40"/></div></a></li><li><a class="tooltip usableitem" onclick="loadMainContent('/Storylet/UseQuality?qualityId=927',null);" title="&lt;strong&gt;1 x Muscaria Brandy&lt;/strong&gt;&lt;br/&gt;Mortals don't drink this reeking oily fluid, at least not twice. Devils prize it, possibly for its effect on mortals.&lt;br/&gt;Create this by using other Infernal items in your inventory. With a high shadowy you can also steal them in high-profile burglaries from the Flit.&lt;br/&gt;&lt;br&gt;&lt;strong&gt;Click on this item in your inventory to use it.&lt;/strong&gt;&lt;/br&gt;"><div class="qq" id="">1</div><div id="infoBarQImage927"><img alt="bottlegreen - Mortals don't drink this reeking oily fluid, at least not twice. Devils prize it, possibly for its effect on mortals." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/bottlegreensmall.png" width="40"/></div></a></li>
+<li><a href=""></a></li>
+<li><a href=""></a></li></ul>
+<h3 style="float:left;margin:5px 0px 0px 0px"> Influence</h3>
+<ul class="you_icon">
+<li><a class="tooltip usableitem" onclick="loadMainContent('/Storylet/UseQuality?qualityId=422',null);" title="&lt;strong&gt;2 x Stolen Correspondence&lt;/strong&gt;&lt;br/&gt;Good heavens. People do these things? And then write them down?&lt;br/&gt;&lt;br&gt;&lt;strong&gt;Click on this item in your inventory to use it.&lt;/strong&gt;&lt;/br&gt;"><div class="qq" id="">2</div><div id="infoBarQImage422"><img alt="papers - Good heavens. People do these things? And then write them down?" border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/paperssmall.png" width="40"/></div></a></li><li><a class="tooltip usableitem" onclick="loadMainContent('/Storylet/UseQuality?qualityId=588',null);" title="&lt;strong&gt;5 x Intriguing Gossip&lt;/strong&gt;&lt;br/&gt;..really? With who? This is worth remembering...&lt;br/&gt;Create this by using other Influence items in your inventory.&lt;br/&gt;&lt;br&gt;&lt;strong&gt;Click on this item in your inventory to use it.&lt;/strong&gt;&lt;/br&gt;"><div class="qq" id="">5</div><div id="infoBarQImage588"><img alt="gossip - ..really? With who? This is worth remembering..." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/gossipsmall.png" width="40"/></div></a></li><li><a class="tooltip usableitem" onclick="loadMainContent('/Storylet/UseQuality?qualityId=830',null);" title="&lt;strong&gt;10 x Compromising Document&lt;/strong&gt;&lt;br/&gt;Who was so unwise as to leave this lying around? Perhaps you'd better look after it.&lt;br/&gt;Create this by using other Influence items in your inventory.&lt;br/&gt;&lt;br&gt;&lt;strong&gt;Click on this item in your inventory to use it.&lt;/strong&gt;&lt;/br&gt;"><div class="qq" id="">10</div><div id="infoBarQImage830"><img alt="papers3 - Who was so unwise as to leave this lying around? Perhaps you'd better look after it." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/papers3small.png" width="40"/></div></a></li><li><a class="tooltip usableitem" onclick="loadMainContent('/Storylet/UseQuality?qualityId=944',null);" title="&lt;strong&gt;1 x Stolen Kiss&lt;/strong&gt;&lt;br/&gt;Something to treasure - or boast of.&lt;br/&gt;Create this by using other Influence items in your inventory.&lt;br/&gt;&lt;br&gt;&lt;strong&gt;Click on this item in your inventory to use it.&lt;/strong&gt;&lt;/br&gt;"><div class="qq" id="">1</div><div id="infoBarQImage944"><img alt="lips - Something to treasure - or boast of." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/lipssmall.png" width="40"/></div></a></li>
+<li><a href=""></a></li>
+<li><a href=""></a></li></ul>
+<h3 style="float:left;margin:5px 0px 0px 0px"> Luminosity</h3>
+<ul class="you_icon">
+<li><a class="tooltip usableitem" onclick="loadMainContent('/Storylet/UseQuality?qualityId=384',null);" title="&lt;strong&gt;1 x Lamplighter Beeswax&lt;/strong&gt;&lt;br/&gt;The poisons of the lamplighter bee make collecting its wax a dangerous job. The price, however, is right.&lt;br/&gt;&lt;br&gt;&lt;strong&gt;Click on this item in your inventory to use it.&lt;/strong&gt;&lt;/br&gt;"><div class="qq" id="">1</div><div id="infoBarQImage384"><img alt="lamplighter_beeswax - The poisons of the lamplighter bee make collecting its wax a dangerous job. The price, however, is right." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/lamplighter_beeswaxsmall.png" width="40"/></div></a></li><li><a class="tooltip usableitem" onclick="loadMainContent('/Storylet/UseQuality?qualityId=589',null);" title="&lt;strong&gt;2 x Memory of Light&lt;/strong&gt;&lt;br/&gt;You saw something inexplicable. A rotting, succulent light lingers in your memories...&lt;br/&gt;Create this by using other Luminosity items in your inventory, or via work with the Implacable Detective.&lt;br/&gt;&lt;br&gt;&lt;strong&gt;Click on this item in your inventory to use it.&lt;/strong&gt;&lt;/br&gt;"><div class="qq" id="">2</div><div id="infoBarQImage589"><img alt="mirror - You saw something inexplicable. A rotting, succulent light lingers in your memories..." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/mirrorsmall.png" width="40"/></div></a></li>
+<li><a href=""></a></li>
+<li><a href=""></a></li>
+<li><a href=""></a></li>
+<li><a href=""></a></li></ul>
+<h3 style="float:left;margin:5px 0px 0px 0px"> Mysteries</h3>
+<ul class="you_icon">
+<li><a class="tooltip usableitem" onclick="loadMainContent('/Storylet/UseQuality?qualityId=380',null);" title="&lt;strong&gt;2139 x Whispered Secret&lt;/strong&gt;&lt;br/&gt;Inscribed in tiny letters on a slip of paper small enough to tie to a raven's leg.&lt;br/&gt;&lt;br&gt;&lt;strong&gt;Click on this item in your inventory to use it.&lt;/strong&gt;&lt;/br&gt;"><div class="qq" id="">2139</div><div id="infoBarQImage380"><img alt="whispered_secret - Inscribed in tiny letters on a slip of paper small enough to tie to a raven's leg." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/whispered_secretsmall.png" width="40"/></div></a></li><li><a class="tooltip usableitem" onclick="loadMainContent('/Storylet/UseQuality?qualityId=389',null);" title="&lt;strong&gt;191 x Cryptic Clue&lt;/strong&gt;&lt;br/&gt;Information too dangerous to be written down, except in code.&lt;br/&gt;Create this by using other Mysteries items in your inventory.&lt;br/&gt;&lt;br&gt;&lt;strong&gt;Click on this item in your inventory to use it.&lt;/strong&gt;&lt;/br&gt;"><div class="qq" id="">191</div><div id="infoBarQImage389"><img alt="crypticsecret - Information too dangerous to be written down, except in code." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/crypticsecretsmall.png" width="40"/></div></a></li><li><a class="tooltip usableitem" onclick="loadMainContent('/Storylet/UseQuality?qualityId=390',null);" title="&lt;strong&gt;40 x Appalling Secret&lt;/strong&gt;&lt;br/&gt;Are you quite sure you want to know this?&lt;br/&gt;Create this by using other Mysteries items in your inventory.&lt;br/&gt;&lt;br&gt;&lt;strong&gt;Click on this item in your inventory to use it.&lt;/strong&gt;&lt;/br&gt;"><div class="qq" id="">40</div><div id="infoBarQImage390"><img alt="appallingsecret - Are you quite sure you want to know this?" border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/appallingsecretsmall.png" width="40"/></div></a></li><li><a class="tooltip usableitem" onclick="loadMainContent('/Storylet/UseQuality?qualityId=525',null);" title="&lt;strong&gt;5 x A Journal of Infamy&lt;/strong&gt;&lt;br/&gt;Here is recorded wickedness to freeze the blood and ravage the soul!&lt;br/&gt;Create this by using other Mysteries items in your inventory, or via work with the Implacable Detective. With a high shadowy you can also steal them in high-profile burglaries from the Flit.&lt;br/&gt;&lt;br&gt;&lt;strong&gt;Click on this item in your inventory to use it.&lt;/strong&gt;&lt;/br&gt;"><div class="qq" id="">5</div><div id="infoBarQImage525"><img alt="book - Here is recorded wickedness to freeze the blood and ravage the soul!" border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/booksmall.png" width="40"/></div></a></li><li><a class="tooltip usableitem" onclick="loadMainContent('/Storylet/UseQuality?qualityId=828',null);" title="&lt;strong&gt;6 x Tale of Terror!!&lt;/strong&gt;&lt;br/&gt;The blood freezes! The neck-hairs rise! The spine crackles with fear! The audience is spellbound!&lt;br/&gt;Create this by using other Mysteries items in your inventory. Opportunities to acquire them will arise if you increase your connections to the Church, Hell, Revolutionaries, and Rubbery Men. With a high shadowy you can also steal them in high-profile burglaries from the Flit.&lt;br/&gt;&lt;br&gt;&lt;strong&gt;Click on this item in your inventory to use it.&lt;/strong&gt;&lt;/br&gt;"><div class="qq" id="">6</div><div id="infoBarQImage828"><img alt="scaryeye - The blood freezes! The neck-hairs rise! The spine crackles with fear! The audience is spellbound!" border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/scaryeyesmall.png" width="40"/></div></a></li><li><a class="tooltip usableitem" onclick="loadMainContent('/Storylet/UseQuality?qualityId=809',null);" title="&lt;strong&gt;1 x Extraordinary Implication&lt;/strong&gt;&lt;br/&gt;How can such a thing be? Who but you could understand what it means?&lt;br/&gt;Create this by using other Mysteries items in your inventory, or by using a Tale of Terror!! to pursue the story of the Fidgeting Writer.&lt;br/&gt;&lt;br&gt;&lt;strong&gt;Click on this item in your inventory to use it.&lt;/strong&gt;&lt;/br&gt;"><div class="qq" id="">1</div><div id="infoBarQImage809"><img alt="implication - How can such a thing be? Who but you could understand what it means?" border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/implicationsmall.png" width="40"/></div></a></li><li><a class="tooltip " title="&lt;strong&gt;1 x Uncanny Incunabulum&lt;/strong&gt;&lt;br/&gt;A venerable book on the very brink of tome-hood, pages crackling with mystery.&lt;br/&gt;"><div class="qq" id="">1</div><div id="infoBarQImage812"><img alt="bookblack - A venerable book on the very brink of tome-hood, pages crackling with mystery." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/bookblacksmall.png" width="40"/></div></a></li>
+<li><a href=""></a></li>
+<li><a href=""></a></li>
+<li><a href=""></a></li>
+<li><a href=""></a></li>
+<li><a href=""></a></li></ul>
+<h3 style="float:left;margin:5px 0px 0px 0px"> Nostalgia</h3>
+<ul class="you_icon">
+<li><a class="tooltip usableitem" onclick="loadMainContent('/Storylet/UseQuality?qualityId=391',null);" title="&lt;strong&gt;197 x Drop of Prisoner's Honey&lt;/strong&gt;&lt;br/&gt;The most delightful secret of the Neath: the honey of lamplighter bees fed exclusively on the Exile's Rose &lt;br/&gt;&lt;br&gt;&lt;strong&gt;Click on this item in your inventory to use it.&lt;/strong&gt;&lt;/br&gt;"><div class="qq" id="">197</div><div id="infoBarQImage391"><img alt="honey - The most delightful secret of the Neath: the honey of lamplighter bees fed exclusively on the Exile's Rose " border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/honeysmall.png" width="40"/></div></a></li><li><a class="tooltip usableitem" onclick="loadMainContent('/Storylet/UseQuality?qualityId=531',null);" title="&lt;strong&gt;54 x Romantic Notion&lt;/strong&gt;&lt;br/&gt;When buying these, the Bazaar borders on generosity. Do the Masters aspire to poetry?&lt;br/&gt;Create this by using other Nostalgia items in your inventory. Opportunities to acquire these can be found by increasing your connections with Bohemians, the Church, Hell, and Urchins.&lt;br/&gt;&lt;br&gt;&lt;strong&gt;Click on this item in your inventory to use it.&lt;/strong&gt;&lt;/br&gt;"><div class="qq" id="">54</div><div id="infoBarQImage531"><img alt="heart - When buying these, the Bazaar borders on generosity. Do the Masters aspire to poetry?" border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/heartsmall.png" width="40"/></div></a></li><li><a class="tooltip usableitem" onclick="loadMainContent('/Storylet/UseQuality?qualityId=827',null);" title="&lt;strong&gt;21 x Vision of the Surface&lt;/strong&gt;&lt;br/&gt;Wistful souls in London will pay dearly for news of the sky.&lt;br/&gt;Create this by using other Nostalgia items in your inventory.&lt;br/&gt;&lt;br&gt;&lt;strong&gt;Click on this item in your inventory to use it.&lt;/strong&gt;&lt;/br&gt;"><div class="qq" id="">21</div><div id="infoBarQImage827"><img alt="clouds - Wistful souls in London will pay dearly for news of the sky." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/cloudssmall.png" width="40"/></div></a></li>
+<li><a href=""></a></li>
+<li><a href=""></a></li>
+<li><a href=""></a></li></ul>
+<h3 style="float:left;margin:5px 0px 0px 0px"> Rag Trade</h3>
+<ul class="you_icon">
+<li><a class="tooltip usableitem" onclick="loadMainContent('/Storylet/UseQuality?qualityId=381',null);" title="&lt;strong&gt;258 x Silk Scrap&lt;/strong&gt;&lt;br/&gt;There probably can't be that many spiders down here. Probably.&lt;br/&gt;&lt;br&gt;&lt;strong&gt;Click on this item in your inventory to use it.&lt;/strong&gt;&lt;/br&gt;"><div class="qq" id="">258</div><div id="infoBarQImage381"><img alt="silk - There probably can't be that many spiders down here. Probably." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/silksmall.png" width="40"/></div></a></li><li><a class="tooltip usableitem" onclick="loadMainContent('/Storylet/UseQuality?qualityId=907',null);" title="&lt;strong&gt;19 x Surface-Silk Scrap&lt;/strong&gt;&lt;br/&gt;None of your sorrow-spider squeezings. This came out of a real surface worm.&lt;br/&gt;Create this by using other Rag Trade items in your inventory.&lt;br/&gt;&lt;br&gt;&lt;strong&gt;Click on this item in your inventory to use it.&lt;/strong&gt;&lt;/br&gt;"><div class="qq" id="">19</div><div id="infoBarQImage907"><img alt="scrap3 - None of your sorrow-spider squeezings. This came out of a real surface worm." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/scrap3small.png" width="40"/></div></a></li><li><a class="tooltip usableitem" onclick="loadMainContent('/Storylet/UseQuality?qualityId=915',null);" title="&lt;strong&gt;1 x Whisper-Satin Scrap&lt;/strong&gt;&lt;br/&gt;Woven in Polythreme, they say, from the sweetest of voices&lt;br/&gt;Create this by using other Rag Trade items in your inventory.&lt;br/&gt;&lt;br&gt;&lt;strong&gt;Click on this item in your inventory to use it.&lt;/strong&gt;&lt;/br&gt;"><div class="qq" id="">1</div><div id="infoBarQImage915"><img alt="scrap2 - Woven in Polythreme, they say, from the sweetest of voices" border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/scrap2small.png" width="40"/></div></a></li>
+<li><a href=""></a></li>
+<li><a href=""></a></li>
+<li><a href=""></a></li></ul>
+<h3 style="float:left;margin:5px 0px 0px 0px"> Rumour</h3>
+<ul class="you_icon">
+<li><a class="tooltip usableitem" onclick="loadMainContent('/Storylet/UseQuality?qualityId=420',null);" title="&lt;strong&gt;1 x Proscribed Material&lt;/strong&gt;&lt;br/&gt;The censors are empowered to confiscate this stuff. But why should they have all the fun?&lt;br/&gt;&lt;br&gt;&lt;strong&gt;Click on this item in your inventory to use it.&lt;/strong&gt;&lt;/br&gt;"><div class="qq" id="">1</div><div id="infoBarQImage420"><img alt="book - The censors are empowered to confiscate this stuff. But why should they have all the fun?" border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/booksmall.png" width="40"/></div></a></li><li><a class="tooltip usableitem" onclick="loadMainContent('/Storylet/UseQuality?qualityId=656',null);" title="&lt;strong&gt;10 x Inkling of Identity&lt;/strong&gt;&lt;br/&gt;Have you glimpsed the face behind the mask?&lt;br/&gt;Create this by using other Rumour items in your inventory.&lt;br/&gt;&lt;br&gt;&lt;strong&gt;Click on this item in your inventory to use it.&lt;/strong&gt;&lt;/br&gt;"><div class="qq" id="">10</div><div id="infoBarQImage656"><img alt="silhouetteman - Have you glimpsed the face behind the mask?" border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/silhouettemansmall.png" width="40"/></div></a></li><li><a class="tooltip usableitem" onclick="loadMainContent('/Storylet/UseQuality?qualityId=659',null);" title="&lt;strong&gt;10 x Incendiary Gossip&lt;/strong&gt;&lt;br/&gt;Unthinkable! Unrepeatable! Inescapable!&lt;br/&gt;Create this by using other Rumour items in your inventory, or by using the Implacable Detective's Business Card. Opportunities to acquire it can be found by increasing your connections to Bohemians, the Church and the Great Game.&lt;br/&gt;&lt;br&gt;&lt;strong&gt;Click on this item in your inventory to use it.&lt;/strong&gt;&lt;/br&gt;"><div class="qq" id="">10</div><div id="infoBarQImage659"><img alt="conversation - Unthinkable! Unrepeatable! Inescapable!" border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/conversationsmall.png" width="40"/></div></a></li>
+<li><a href=""></a></li>
+<li><a href=""></a></li>
+<li><a href=""></a></li></ul>
+<h3 style="float:left;margin:5px 0px 0px 0px"> Wild Words</h3>
+<ul class="you_icon">
+<li><a class="tooltip usableitem" onclick="loadMainContent('/Storylet/UseQuality?qualityId=388',null);" title="&lt;strong&gt;131 x Primordial Shriek&lt;/strong&gt;&lt;br/&gt;A scream sealed into a stone jar with black beeswax. Something left over from the dawn of time.&lt;br/&gt;&lt;br&gt;&lt;strong&gt;Click on this item in your inventory to use it.&lt;/strong&gt;&lt;/br&gt;"><div class="qq" id="">131</div><div id="infoBarQImage388"><img alt="waxjar - A scream sealed into a stone jar with black beeswax. Something left over from the dawn of time." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/waxjarsmall.png" width="40"/></div></a></li><li><a class="tooltip usableitem" onclick="loadMainContent('/Storylet/UseQuality?qualityId=935',null);" title="&lt;strong&gt;251 x Maniac's Prayer&lt;/strong&gt;&lt;br/&gt;Perhaps you can distinguish ghastly truths in here? Possibly it just rhymes funny.&lt;br/&gt;Create this by using other Wild Words items in your inventory. Opportunities to acquire it will also appear if you increase your connections to Hell, the Great Game and the Church.&lt;br/&gt;&lt;br&gt;&lt;strong&gt;Click on this item in your inventory to use it.&lt;/strong&gt;&lt;/br&gt;"><div class="qq" id="">251</div><div id="infoBarQImage935"><img alt="honeymazed - Perhaps you can distinguish ghastly truths in here? Possibly it just rhymes funny." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/honeymazedsmall.png" width="40"/></div></a></li><li><a class="tooltip usableitem" onclick="loadMainContent('/Storylet/UseQuality?qualityId=932',null);" title="&lt;strong&gt;5 x Correspondence Plaque&lt;/strong&gt;&lt;br/&gt;A lead plaque incised, carefully, with Correspondence sigils. Not too many. Apparently even lead can burn.&lt;br/&gt;Create this by using other Wild Words items in your inventory.&lt;br/&gt;&lt;br&gt;&lt;strong&gt;Click on this item in your inventory to use it.&lt;/strong&gt;&lt;/br&gt;"><div class="qq" id="">5</div><div id="infoBarQImage932"><img alt="scrawl1 - A lead plaque incised, carefully, with Correspondence sigils. Not too many. Apparently even lead can burn." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/scrawl1small.png" width="40"/></div></a></li><li><a class="tooltip usableitem" onclick="loadMainContent('/Storylet/UseQuality?qualityId=773',null);" title="&lt;strong&gt;1 x Aeolian Scream&lt;/strong&gt;&lt;br/&gt;A curse from the lips of a forgotten god. Music like cold-forged iron spearheads. The Bazaar will pay handsomely!&lt;br/&gt;Create this by using other Wild Words items in your inventory.&lt;br/&gt;&lt;br&gt;&lt;strong&gt;Click on this item in your inventory to use it.&lt;/strong&gt;&lt;/br&gt;"><div class="qq" id="">1</div><div id="infoBarQImage773"><img alt="clouds - A curse from the lips of a forgotten god. Music like cold-forged iron spearheads. The Bazaar will pay handsomely!" border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/cloudssmall.png" width="40"/></div></a></li>
+<li><a href=""></a></li>
+<li><a href=""></a></li></ul>
+<h3 style="float:left;margin:5px 0px 0px 0px"> Wines</h3>
+<ul class="you_icon">
+<li><a class="tooltip usableitem" onclick="loadMainContent('/Storylet/UseQuality?qualityId=383',null);" title="&lt;strong&gt;440 x Greyfields 1882&lt;/strong&gt;&lt;br/&gt;One of the better years. Tangy, with an agaric aftertaste.&lt;br/&gt;&lt;br&gt;&lt;strong&gt;Click on this item in your inventory to use it.&lt;/strong&gt;&lt;/br&gt;"><div class="qq" id="">440</div><div id="infoBarQImage383"><img alt="bottleandglassred - One of the better years. Tangy, with an agaric aftertaste." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/bottleandglassredsmall.png" width="40"/></div></a></li><li><a class="tooltip usableitem" onclick="loadMainContent('/Storylet/UseQuality?qualityId=815',null);" title="&lt;strong&gt;33 x Morelways 1872&lt;/strong&gt;&lt;br/&gt;'Come quickly, I am drinking the fallen stars!'&lt;br/&gt; Create this by using other Wines items in your inventory.&lt;br/&gt;&lt;br&gt;&lt;strong&gt;Click on this item in your inventory to use it.&lt;/strong&gt;&lt;/br&gt;"><div class="qq" id="">33</div><div id="infoBarQImage815"><img alt="bottlemorelways - 'Come quickly, I am drinking the fallen stars!'" border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/bottlemorelwayssmall.png" width="40"/></div></a></li><li><a class="tooltip usableitem" onclick="loadMainContent('/Storylet/UseQuality?qualityId=822',null);" title="&lt;strong&gt;1 x Strangling Willow Absinthe&lt;/strong&gt;&lt;br/&gt;Get it off! GET IT OFF!&lt;br/&gt; Create this by using other Wines items in your inventory.&lt;br/&gt;&lt;br&gt;&lt;strong&gt;Click on this item in your inventory to use it.&lt;/strong&gt;&lt;/br&gt;"><div class="qq" id="">1</div><div id="infoBarQImage822"><img alt="bottlewillow - Get it off! GET IT OFF!" border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/bottlewillowsmall.png" width="40"/></div></a></li><li><a class="tooltip usableitem" onclick="loadMainContent('/Storylet/UseQuality?qualityId=823',null);" title="&lt;strong&gt;8 x Broken Giant 1844&lt;/strong&gt;&lt;br/&gt;Rich and dark as blood. This vintage claims to predate the Fall.&lt;br/&gt;Create this by using other Wines items in your inventory.&lt;br/&gt;&lt;br&gt;&lt;strong&gt;Click on this item in your inventory to use it.&lt;/strong&gt;&lt;/br&gt;"><div class="qq" id="">8</div><div id="infoBarQImage823"><img alt="bottlegiant - Rich and dark as blood. This vintage claims to predate the Fall." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/bottlegiantsmall.png" width="40"/></div></a></li><li><a class="tooltip " title="&lt;strong&gt;1 x Cellar of Wine&lt;/strong&gt;&lt;br/&gt;What civilised person could be without one? [This is mainly used for creating advanced items - such as joining the Young Stags' Club.]&lt;br/&gt;Create this by using other Wines items in your inventory, or earn them on the fourth coil of the Labyrinth of Tigers..&lt;br/&gt;"><div class="qq" id="">1</div><div id="infoBarQImage736"><img alt="wineglass - What civilised person could be without one? [This is mainly used for creating advanced items - such as joining the Young Stags' Club.]" border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/wineglasssmall.png" width="40"/></div></a></li><li><a class="tooltip " title="&lt;strong&gt;1 x Fourth City Airag: Year of the Tortoise&lt;/strong&gt;&lt;br/&gt;At last you find an obliging fellow from Tartary who can translate the faded label: 'For the Khan of Dreams'. It smells like horse-sick.&lt;br/&gt;Gained by trading for it at a Presumptuous Opportunity in London. Expeditions in the Forgotten Quarter occasionally uncover them.&lt;br/&gt;"><div class="qq" id="">1</div><div id="infoBarQImage824"><img alt="bottlehorse - At last you find an obliging fellow from Tartary who can translate the faded label: 'For the Khan of Dreams'. It smells like horse-sick." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/bottlehorsesmall.png" width="40"/></div></a></li></ul>
+<h3 style="float:left;margin:5px 0px 0px 0px"> Rubbery</h3>
+<ul class="you_icon">
+<li><a class="tooltip " title="&lt;strong&gt;274 x Deep Amber&lt;/strong&gt;&lt;br/&gt;Warmly glowing and, er, slightly warm.&lt;br/&gt;"><div class="qq" id="">274</div><div id="infoBarQImage385"><img alt="amber - Warmly glowing and, er, slightly warm." border="0" height="52" src="http://images.echobazaar.failbettergames.com/icons/ambersmall.png" width="40"/></div></a></li>
+<li><a href=""></a></li>
+<li><a href=""></a></li>
+<li><a href=""></a></li>
+<li><a href=""></a></li>
+<li><a href=""></a></li>
+</ul>
+<!--YOU RHS BOTTOM END-->
+</div>
+<!--YOU RHS BOTTOM END-->
+</div>
+<!--YOU BOTTOM END-->
