@@ -1,29 +1,15 @@
-class Lodgings:
-    _id = 2
+class Area:
+    def __init__(self, areaid, name):
+        self.id = areaid
+        self.name = name
 
-class LadybonesRoad:
-    _id = 4
-
-class WatchmakersHill:
-    _id = 5
-
-class Veilgarden:
-    _id = 6
-
-class Spite:
-    _id = 7
-
-class ForgottenQuarter:
-    _id = 9
-
-class ShutteredPalace:
-    _id = 10
-
-class Flit:
-    _id = 11
-
-class Carnival:
-    _id = 18
-
-class HouseOfChimes:
-    _id = 34
+LODGINGS = Area(2, 'your Lodgings')
+LADYBONES_ROAD = Area(4, 'Ladybones Road')
+WATCHMAKERS_HILL = Area(5, 'Watchmaker\'s Hill')
+VEILGARDEN = Area(6, 'Veilgarden')
+SPITE = Area(7, 'Spite')
+FORGOTTEN_QUARTER = Area(9, 'The Forgotten Quarter')
+SHUTTERED_PALACE = Area(10, 'The Shuttered Palace')
+THE_FLIT = Area(11, 'The Flit')
+CARNIVAL = Area(18, 'Mrs Plenty\'s Carnival')
+HOUSE_OF_CHIMES = Area(34, 'The House of Chimes')

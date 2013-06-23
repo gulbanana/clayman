@@ -1,4 +1,5 @@
 import numbers
+import re
 import bs4
 from . import site
 import _settings
@@ -10,12 +11,18 @@ class Gentleperson:
         self._update_status()
 
     def travel(self, area):
-        html = self.game.post('/Map/Move', {'areaid': area._id})
+        if self.location == area.id:
+            if not hasattr(self, 'storylets'):
+                html = self.game.post('/Storylet/Available', {})
+                soup = bs4.BeautifulSoup(html)
+                self._parse_branches(soup)
+            return
+
+        html = self.game.post('/Map/Move', {'areaid': area.id})
         soup = bs4.BeautifulSoup(html)
 
         self._parse_branches(soup)
-
-        print('Welcome to {0}, delicious friend!'.format(area.__name__))
+        print('Welcome to {0}, delicious friend!'.format(area.name))
 
     def use_item(self, item):
         html = self.game.post('/Storylet/UseQuality', {'qualityId': item._id})
@@ -69,14 +76,22 @@ class Gentleperson:
         print('--> Onwards!')
 
     def _update_status(self):
-        html = self.game.get('/Gap/Load', dict(content='/Me'))
-        soup = bs4.BeautifulSoup(html)
+        outer_soup = bs4.BeautifulSoup(self.game.get('/Gap/Load', dict(content='/Me')))
+        inner_soup = bs4.BeautifulSoup(self.game.post('/Me', dict()))
 
-        action_tag = soup.find('span', class_='actions_remaining')
-        self.actions = action_tag.contents[0].string
-        self.action_cap = action_tag.contents[1][1:]
+        action_tag = outer_soup.find('span', class_='actions_remaining')
+        self.actions = int(action_tag.contents[0].string)
+        self.action_cap = int(action_tag.contents[1][1:])
 
-        print('Updated my journal.')
+        area_tag = outer_soup.find('div', id='currentAreaSection')
+        match = re.search(r'displayCurrentArea\((\d+)', area_tag.script.string)
+        self.location = int(match.groups(0)[0])
+
+        heading_tag = inner_soup.find('div', class_='redesign_heading')
+        self.name = heading_tag.h1.a.string
+        self.description = ' '.join(heading_tag.p.stripped_strings)
+
+        print('{0}: {1}.'.format(self.name, self.description))
 
     def _parse_branches(self, soup):
         self.branches = dict()

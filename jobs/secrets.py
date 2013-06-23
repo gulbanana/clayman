@@ -2,7 +2,7 @@ from london import *
 
 character = Gentleperson()
 
-character.travel(areas.Veilgarden)
+character.travel(areas.VEILGARDEN)
 
 # +54 whispered secrets per action (0.54E)
 for i in range(0,6):
