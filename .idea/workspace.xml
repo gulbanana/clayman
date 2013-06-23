@@ -1,17 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="af3f8334-ac7d-451d-8e65-c4a3149ba6db" name="Default" comment="mac workspace setup">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jobs/home.py" />
+    <list default="true" id="af3f8334-ac7d-451d-8e65-c4a3149ba6db" name="Default" comment="basic status scraper">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/london/__init__.py" afterPath="$PROJECT_DIR$/london/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/london/api.py" afterPath="$PROJECT_DIR$/london/api.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/clayman.py" afterPath="$PROJECT_DIR$/clayman.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jobs/home.py" afterPath="$PROJECT_DIR$/jobs/home.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/london/site.py" afterPath="$PROJECT_DIR$/london/site.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/london/status.py" afterPath="$PROJECT_DIR$/london/status.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="clayman.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="af3f8334-ac7d-451d-8e65-c4a3149ba6db" time="1371970555436" ignored="false" />
+    <file path="/Dummy.txt" changelist="af3f8334-ac7d-451d-8e65-c4a3149ba6db" time="1371975205867" ignored="false" />
     <file path="/main.py" changelist="af3f8334-ac7d-451d-8e65-c4a3149ba6db" time="1371922764018" ignored="false" />
     <file path="/london.py" changelist="af3f8334-ac7d-451d-8e65-c4a3149ba6db" time="1371910344726" ignored="false" />
-    <file path="/__init__.py" changelist="af3f8334-ac7d-451d-8e65-c4a3149ba6db" time="1371914560301" ignored="false" />
-    <file path="/api.py" changelist="af3f8334-ac7d-451d-8e65-c4a3149ba6db" time="1371924818599" ignored="false" />
+    <file path="/__init__.py" changelist="af3f8334-ac7d-451d-8e65-c4a3149ba6db" time="1371973098912" ignored="false" />
+    <file path="/api.py" changelist="af3f8334-ac7d-451d-8e65-c4a3149ba6db" time="1371974338485" ignored="false" />
     <file path="/secrets.py" changelist="af3f8334-ac7d-451d-8e65-c4a3149ba6db" time="1371970195066" ignored="false" />
     <file path="/areas.py" changelist="af3f8334-ac7d-451d-8e65-c4a3149ba6db" time="1371970175098" ignored="false" />
     <file path="/events.py" changelist="af3f8334-ac7d-451d-8e65-c4a3149ba6db" time="1371912682915" ignored="false" />
@@ -20,12 +25,13 @@
     <file path="/trade_souls.py" changelist="af3f8334-ac7d-451d-8e65-c4a3149ba6db" time="1371914642192" ignored="false" />
     <file path="/items.py" changelist="af3f8334-ac7d-451d-8e65-c4a3149ba6db" time="1371928192392" ignored="false" />
     <file path="/DeliciousFriend.py" changelist="af3f8334-ac7d-451d-8e65-c4a3149ba6db" time="1371915154335" ignored="false" />
-    <file path="/status.py" changelist="af3f8334-ac7d-451d-8e65-c4a3149ba6db" time="1371916400817" ignored="false" />
-    <file path="/site.py" changelist="af3f8334-ac7d-451d-8e65-c4a3149ba6db" time="1371923348835" ignored="false" />
+    <file path="/status.py" changelist="af3f8334-ac7d-451d-8e65-c4a3149ba6db" time="1371975283835" ignored="false" />
+    <file path="/site.py" changelist="af3f8334-ac7d-451d-8e65-c4a3149ba6db" time="1371975290049" ignored="false" />
     <file path="/.gitignore" changelist="af3f8334-ac7d-451d-8e65-c4a3149ba6db" time="1371922597603" ignored="false" />
-    <file path="/fragment.py" changelist="af3f8334-ac7d-451d-8e65-c4a3149ba6db" time="1371924769495" ignored="false" />
+    <file path="/fragment.py" changelist="af3f8334-ac7d-451d-8e65-c4a3149ba6db" time="1371974318264" ignored="false" />
     <file path="/secretsX6.py" changelist="af3f8334-ac7d-451d-8e65-c4a3149ba6db" time="1371925995082" ignored="false" />
-    <file path="/home.py" changelist="af3f8334-ac7d-451d-8e65-c4a3149ba6db" time="1371970574310" ignored="false" />
+    <file path="/home.py" changelist="af3f8334-ac7d-451d-8e65-c4a3149ba6db" time="1371975133139" ignored="false" />
+    <file path="/clayman.py" changelist="af3f8334-ac7d-451d-8e65-c4a3149ba6db" time="1371972774425" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,19 +60,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="home.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="home.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/jobs/home.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="61" selection-start="106" selection-end="106" vertical-scroll-proportion="0.094339624">
+            <state line="3" column="41" selection-start="86" selection-end="86" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="areas.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="areas.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/london/areas.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="11" selection-start="27" selection-end="27" vertical-scroll-proportion="0.0">
+            <state line="1" column="11" selection-start="27" selection-end="27" vertical-scroll-proportion="0.031446543">
               <folding />
             </state>
           </provider>
@@ -75,10 +81,61 @@
       <file leaf-file-name="site.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/london/site.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="0" selection-start="124" selection-end="124" vertical-scroll-proportion="0.0">
+            <state line="27" column="25" selection-start="941" selection-end="941" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="clayman.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/clayman.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="10" selection-start="10" selection-end="10" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="__init__.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/london/__init__.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2" column="20" selection-start="60" selection-end="60" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#0#19#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="api.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/london/api.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="7" column="0" selection-start="168" selection-end="168" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#0#10#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="status.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/london/status.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="15" column="30" selection-start="377" selection-end="377" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#0#10#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="request.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file:///Library/Frameworks/Python.framework/Versions/3.2/lib/python3.2/urllib/request.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="353" column="0" selection-start="11413" selection-end="11413" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -102,21 +159,21 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/main.py" />
-        <option value="$PROJECT_DIR$/london/status.py" />
-        <option value="$PROJECT_DIR$/london/__init__.py" />
         <option value="$PROJECT_DIR$/jobs/trade_souls.py" />
         <option value="$PROJECT_DIR$/jobs/__init__.py" />
         <option value="$PROJECT_DIR$/settings.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/_settings.py" />
-        <option value="$PROJECT_DIR$/clayman.py" />
-        <option value="$PROJECT_DIR$/london/site.py" />
-        <option value="$PROJECT_DIR$/london/api.py" />
         <option value="$PROJECT_DIR$/jobs/secretsX6.py" />
         <option value="$PROJECT_DIR$/london/items.py" />
         <option value="$PROJECT_DIR$/jobs/secrets.py" />
         <option value="$PROJECT_DIR$/london/areas.py" />
+        <option value="$PROJECT_DIR$/clayman.py" />
+        <option value="$PROJECT_DIR$/london/__init__.py" />
+        <option value="$PROJECT_DIR$/london/api.py" />
         <option value="$PROJECT_DIR$/jobs/home.py" />
+        <option value="$PROJECT_DIR$/london/status.py" />
+        <option value="$PROJECT_DIR$/london/site.py" />
       </list>
     </option>
   </component>
@@ -360,7 +417,11 @@
       <created>1371970540161</created>
       <updated>1371970540161</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="simple test script">
+      <created>1371970627681</created>
+      <updated>1371970627681</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -429,7 +490,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="mac workspace setup" />
+    <option name="LAST_COMMIT_MESSAGE" value="simple test script" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -448,20 +509,14 @@
     <MESSAGE value="new script" />
     <MESSAGE value="a tiny bit of doc" />
     <MESSAGE value="mac workspace setup" />
+    <MESSAGE value="simple test script" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="8" />
+      <option name="time" value="10" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/london/api.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="26" selection-start="474" selection-end="474" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/london/site.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="32" column="96" selection-start="1114" selection-end="1114" vertical-scroll-proportion="0.0">
@@ -476,13 +531,6 @@
         <state line="1" column="8" selection-start="17" selection-end="17" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/london/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/jobs/trade_souls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
@@ -495,30 +543,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/london/status.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state line="37" column="1" selection-start="315" selection-end="315" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/clayman.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="34" selection-start="178" selection-end="178" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/london/api.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="26" selection-start="474" selection-end="474" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -537,15 +564,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/london/site.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="124" selection-end="124" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/jobs/secrets.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="4" column="53" selection-start="101" selection-end="101" vertical-scroll-proportion="0.0">
@@ -553,16 +571,66 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/london/areas.py">
+    <entry file="file://$PROJECT_DIR$/clayman.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="11" selection-start="27" selection-end="27" vertical-scroll-proportion="0.0">
+        <state line="0" column="10" selection-start="10" selection-end="10" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/london/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="20" selection-start="60" selection-end="60" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.2/lib/python3.2/urllib/request.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="353" column="0" selection-start="11413" selection-end="11413" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/london/api.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="0" selection-start="168" selection-end="168" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/jobs/home.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="61" selection-start="106" selection-end="106" vertical-scroll-proportion="0.094339624">
+        <state line="3" column="41" selection-start="86" selection-end="86" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/london/status.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="30" selection-start="377" selection-end="377" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/london/site.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="25" selection-start="941" selection-end="941" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/london/areas.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="11" selection-start="27" selection-end="27" vertical-scroll-proportion="0.031446543">
           <folding />
         </state>
       </provider>

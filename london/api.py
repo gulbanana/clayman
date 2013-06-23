@@ -2,12 +2,12 @@ import bs4
 from . import site
 
 def travel(area):
-    site.command('/Map/Move', {'areaid': area._id})
+    site.post('/Map/Move', {'areaid': area._id})
     print('Welcome to {0}, delicious friend!'.format(area.__name__))
 
 
 def use_item(item):
-    html = site.command('/Storylet/UseQuality', {'qualityId': item._id})
+    html = site.post('/Storylet/UseQuality', {'qualityId': item._id})
     soup = bs4.BeautifulSoup(html)
     print('Used {0}'.format(item.__name__))
 
@@ -17,7 +17,7 @@ def use_item(item):
 
 
 def begin_story(storylet):
-    html = site.command('/Storylet/Begin', {'eventid': storylet._id})
+    html = site.post('/Storylet/Begin', {'eventid': storylet._id})
     soup = bs4.BeautifulSoup(html)
     print('"{0}"'.format(soup.h3.string.strip()))
 
@@ -27,7 +27,7 @@ def begin_story(storylet):
 
 
 def choose_branch(branch):
-    html = site.command('/Storylet/ChooseBranch', {'branchid': branch})
+    html = site.post('/Storylet/ChooseBranch', {'branchid': branch})
     soup = bs4.BeautifulSoup(html)
     effects = soup.find_all('p')
 
