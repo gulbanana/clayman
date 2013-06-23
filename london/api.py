@@ -119,7 +119,16 @@ class Character:
         self.name = heading.h1.a.string
         self.description = ' '.join(heading.p.stripped_strings)
 
+        self.menaces = dict()
         qualities = inner_soup.find('div', class_='you_bottom_lhs')
+        menaces = qualities.find(text='Menace').parent.parent.next_sibling.next_sibling.find_all('strong')
+        for menace in menaces:
+            menace.string
+            matches = re.search(r'(.*) (\d+)', menace.string)
+            name = matches.group(1)
+            quantity = int(matches.group(2))
+
+            self.menaces[name] = int(quantity)
 
         self.items = dict()
         equipment = inner_soup.find('div', id='inventory')
@@ -127,8 +136,8 @@ class Character:
         for item in [possession for possession in  possessions('li') if len(possession.a.contents) > 0]:
             tooltip = item.a['title']
             matches = re.search(r'>(\d+) x (.*?)<', tooltip)
-            quantity = matches.group(1)
             name = matches.group(2)
+            quantity = int(matches.group(1))
 
             imagediv = item('div')[1]['id']
             match = re.search(r'infoBarQImage(\d+)', imagediv)

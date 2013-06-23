@@ -25,9 +25,9 @@ def grind_clues(character):
 
 character = Character(_settings.AUTH_USER, _settings.AUTH_PASS)
 
-buffer = character.action_cap - 2
+buffer = character.action_cap - 5
 while character.actions > buffer:
-    if character.menaces['Scandal'].quantity < 7:
+    if character.menaces['Scandal'] < 7:
         grind_wines(character)
     elif character.items['Whispered Secret'].quantity < 80000:
         grind_secrets(character)
