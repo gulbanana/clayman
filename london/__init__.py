@@ -1,3 +1,3 @@
 from . import areas as areas
 from . import items
-from .api import Gentleperson
+from .api import Character

@@ -23,13 +23,13 @@ def grind_clues(character):
     character.choose_branch('Write a letter')
     character.onwards()
 
-character = Gentleperson(_settings.AUTH_USER, _settings.AUTH_PASS)
+character = Character(_settings.AUTH_USER, _settings.AUTH_PASS)
 
 buffer = character.action_cap - 8   # script is only called once per hour
 while character.actions > buffer:
-    if character.menaces['Scandal'] < 7:
+    if character.menaces['Scandal'].quantity < 7:
         grind_wines(character)
-    elif character.items['Whispered Secret'] < 80000:
+    elif character.items['Whispered Secret'].quantity < 80000:
         grind_secrets(character)
     else:
         grind_clues(character)

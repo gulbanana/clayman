@@ -4,7 +4,12 @@ import bs4
 from . import site
 import _settings
 
-class Gentleperson:
+class Quality:
+    def __init__(self, id, quantity):
+        self.id = id
+        self.quantity = quantity
+
+class Character:
     def __init__(self, username, password):
         self.game = site.Browser(username, password)
         print('Entered the Neath.')
@@ -70,24 +75,6 @@ class Gentleperson:
         self._parse_branches(soup)
         print('--> Onwards!')
 
-    def _update_status(self):
-        outer_soup = bs4.BeautifulSoup(self.game.get('/Gap/Load', dict(content='/Me')))
-        inner_soup = bs4.BeautifulSoup(self.game.post('/Me', dict()))
-
-        action_tag = outer_soup.find('span', class_='actions_remaining')
-        self.actions = int(action_tag.contents[0].string)
-        self.action_cap = int(action_tag.contents[1][1:])
-
-        area_tag = outer_soup.find('div', id='currentAreaSection')
-        match = re.search(r'displayCurrentArea\((\d+)', area_tag.script.string)
-        self.location = int(match.groups(0)[0])
-
-        heading_tag = inner_soup.find('div', class_='redesign_heading')
-        self.name = heading_tag.h1.a.string
-        self.description = ' '.join(heading_tag.p.stripped_strings)
-
-        print('{0}: {1}.'.format(self.name, self.description))
-
     def _parse_branches(self, soup):
         self.branches = dict()
         self.storylets = dict()
@@ -104,7 +91,7 @@ class Gentleperson:
     def _parse_effects(self, soup):
         update_script = soup.find_all('script')[1].string
         match = re.search(r'setActionsLevel\((\d+)', update_script)
-        self.actions = int(match.groups(0)[0])
+        self.actions = int(match.group(1))
 
         effects = soup.find('div', class_='quality_update_box').find_all('p')
         for tag in effects:
@@ -112,4 +99,39 @@ class Gentleperson:
             if not 'You succeeded' in content:
                 print('    {0}'.format(content))
 
+    def _update_status(self):
+        outer_soup = bs4.BeautifulSoup(self.game.get('/Gap/Load', dict(content='/Me')))
+        inner_soup = bs4.BeautifulSoup(self.game.post('/Me', dict()))
 
+        action_tag = outer_soup.find('span', class_='actions_remaining')
+        self.actions = int(action_tag.contents[0].string)
+        self.action_cap = int(action_tag.contents[1][1:])
+
+        area_tag = outer_soup.find('div', id='currentAreaSection')
+        match = re.search(r'displayCurrentArea\((\d+)', area_tag.script.string)
+        self.location = int(match.group(1))
+
+        heading = inner_soup.find('div', class_='redesign_heading')
+        self.name = heading.h1.a.string
+        self.description = ' '.join(heading.p.stripped_strings)
+
+        qualities = inner_soup.find('div', class_='you_bottom_lhs')
+
+        self.items = dict()
+        equipment = inner_soup.find('div', id='inventory')
+        possessions = inner_soup.find('div', class_='you_bottom_rhs')
+        for item in [possession for possession in  possessions('li') if len(possession.a.contents) > 0]:
+            tooltip = item.a['title']
+            matches = re.search(r'>(\d+) x (.*?)<', tooltip)
+            quantity = matches.group(1)
+            name = matches.group(2)
+
+            imagediv = item('div')[1]['id']
+            match = re.search(r'infoBarQImage(\d+)', imagediv)
+            id = match.group(1)
+
+            self.items[name] = Quality(id, quantity)
+
+
+
+        print('{0}: {1}.'.format(self.name, self.description))
