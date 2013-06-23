@@ -5,8 +5,8 @@ from . import site
 import _settings
 
 class Gentleperson:
-    def __init__(self):
-        self.game = site.Browser(_settings.AUTH_USER, _settings.AUTH_PASS)
+    def __init__(self, username, password):
+        self.game = site.Browser(username, password)
         print('Entered the Neath.')
         self._update_status()
 
@@ -48,6 +48,7 @@ class Gentleperson:
             branch = self.branches[branch]
 
         html = self.game.post('/Storylet/ChooseBranch', dict(branchid=branch, secondChances=second_chance))
+        print(html)
         soup = bs4.BeautifulSoup(html)
 
         # XXX there can be more than one descriptive para, find a better way
