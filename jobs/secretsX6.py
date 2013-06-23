@@ -1,7 +1,9 @@
-from london import *
+import london
 
-travel(areas.Veilgarden)
+character = london.Gentleperson()
+
+character.travel(london.areas.Veilgarden)
 
 for i in range(0,6):
-    begin_story(areas.Veilgarden.demands_of_high_society)
-    choose_default()
+    character.begin_story(london.areas.Veilgarden.demands_of_high_society)
+    character.choose_default_branch()

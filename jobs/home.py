@@ -1,4 +1,5 @@
-from london import *
+import london
 
-travel(areas.Lodgings)
-print('Actions available: {0}/{1}'.format(status.actions, status.action_cap))
+character = london.Gentleperson()
+character.travel(london.areas.Lodgings)
+print('Actions available: {0}/{1}'.format(character.actions, character.action_cap))
