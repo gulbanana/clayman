@@ -5,5 +5,4 @@ if len(sys.argv) != 2:
     print('  runs a batch in jobs/<script>.py')
     exit(0)
 
-
 exec('import jobs.' + sys.argv[1])
