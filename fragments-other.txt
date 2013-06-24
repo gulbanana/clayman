@@ -1,0 +1,8 @@
+paras:
+    Persuasive has increased to 69!
+
+paras:
+    Persuasive is increasing...
+    Persuasive 85 failed in a challenge! (This challenge was old territory for you - you won't learn so much.)
+
+    Scandal has increased to 4 - Shocking!

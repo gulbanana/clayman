@@ -3,7 +3,8 @@ from london import *
 from .common import *
 
 def grind_wines(character):
-    """+37 Greyfields 1882 per action (0.74E)"""
+    """+37 Greyfields 1882 per action (0.74E)
+    max persuasive 84 (72% chance)"""
     character.travel(areas.SHUTTERED_PALACE)
     character.begin_story('The Antiquarian Footman')
     character.choose_branch('Offer the fellow a partnership')
@@ -25,7 +26,7 @@ def grind_clues(character):
 
 character = Character(_settings.AUTH_USER, _settings.AUTH_PASS)
 
-buffer = character.action_cap - 5
+buffer = character.action_cap - 4
 while character.actions > buffer:
     if character.menaces['Scandal'] < 7:
         grind_wines(character)
