@@ -4,10 +4,9 @@ import urllib.request, urllib.parse
 BASE_URI = 'http://fallenlondon.storynexus.com'
 
 class Browser:
-    def __init__(self, username, password):
+    def __init__(self):
         self.jar = http.cookiejar.CookieJar()
         self.client = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(self.jar))
-        self.post('/Auth/EmailLogin', {'emailAddress': username, 'password': password})
 
     def get(self, page, query):
         uri = BASE_URI + page

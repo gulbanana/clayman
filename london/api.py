@@ -12,8 +12,12 @@ class Quality:
 
 class Character:
     def __init__(self, username, password):
-        self.game = site.Browser(username, password)
+        self.game = site.Browser()
+
+        # this uselessly returns the same thing as /Storylet/Available, inner html only
+        self.game.post('/Auth/EmailLogin', {'emailAddress': username, 'password': password})
         print('Entered the Neath.')
+
         self._update_status()
 
     def travel(self, area):
@@ -104,8 +108,14 @@ class Character:
                 print('    {0}'.format(content))
 
     def _update_status(self):
-        outer_soup = bs4.BeautifulSoup(self.game.get('/Gap/Load', dict(content='/Me')))
-        inner_soup = bs4.BeautifulSoup(self.game.post('/Me', dict()))
+        outer_html = self.game.get('/Gap/Load', dict(content='/Me'))
+        outer_soup = bs4.BeautifulSoup(outer_html)
+
+        self._update_status_inner(outer_soup)
+
+    def _update_status_inner(self, outer_soup):
+        inner_html = self.game.post('/Me', dict())
+        inner_soup = bs4.BeautifulSoup(inner_html)
 
         action_tag = outer_soup.find('span', class_='actions_remaining')
         self.actions = int(action_tag.contents[0].string)
@@ -123,7 +133,6 @@ class Character:
         qualities = inner_soup.find('div', class_='you_bottom_lhs')
         menaces = qualities.find(text='Menace').parent.parent.next_sibling.next_sibling.find_all('strong')
         for menace in menaces:
-            menace.string
             matches = re.search(r'(.*) (\d+)', menace.string)
             name = matches.group(1)
             quantity = int(matches.group(2))
