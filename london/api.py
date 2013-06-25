@@ -125,19 +125,26 @@ class Character:
         match = re.search(r'displayCurrentArea\((\d+)', area_tag.script.string)
         self.location = int(match.group(1))
 
-        heading = inner_soup.find('div', class_='redesign_heading')
-        self.name = heading.h1.a.string
-        self.description = ' '.join(heading.p.stripped_strings)
+        self.watchful = eval(outer_soup.find('span', id='infoBarQLevel209').string +
+                             outer_soup.find('span', id='infoBarBonusPenalty209').string)
 
-        self.menaces = dict()
-        qualities = inner_soup.find('div', class_='you_bottom_lhs')
-        menaces = qualities.find(text='Menace').parent.parent.next_sibling.next_sibling.find_all('strong')
-        for menace in menaces:
-            matches = re.search(r'(.*) (\d+)', menace.string)
-            name = matches.group(1)
-            quantity = int(matches.group(2))
+        self.shadowy = eval(outer_soup.find('span', id='infoBarQLevel210').string +
+                            outer_soup.find('span', id='infoBarBonusPenalty210').string)
 
-            self.menaces[name] = int(quantity)
+        self.dangerous = eval(outer_soup.find('span', id='infoBarQLevel211').string +
+                              outer_soup.find('span', id='infoBarBonusPenalty211').string)
+
+        self.persuasive = eval(outer_soup.find('span', id='infoBarQLevel212').string +
+                               outer_soup.find('span', id='infoBarBonusPenalty212').string)
+
+        self.qualities = dict()
+        quals = inner_soup.find('div', class_='you_bottom_lhs')
+        for quality in [q.string for q in quals('strong') if q.string]:
+            matches = re.search(r'(.*) (\d+)', quality.string)
+            if matches:
+                name = matches.group(1)
+                quantity = int(matches.group(2))
+                self.qualities[name] = int(quantity)
 
         self._items = dict()
         self.items = dict()
@@ -156,4 +163,7 @@ class Character:
             self._items[name] = Quality(id, name, quantity)
             self.items[name] = quantity
 
+        heading = inner_soup.find('div', class_='redesign_heading')
+        self.name = heading.h1.a.string
+        self.description = ' '.join(heading.p.stripped_strings)
         print('{0}: {1}.'.format(self.name, self.description))
