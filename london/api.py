@@ -1,3 +1,4 @@
+from collections import defaultdict
 import numbers
 import re
 import bs4
@@ -137,7 +138,7 @@ class Character:
         self.persuasive = eval(outer_soup.find('span', id='infoBarQLevel212').string +
                                outer_soup.find('span', id='infoBarBonusPenalty212').string)
 
-        self.qualities = dict()
+        self.qualities = defaultdict(int)
         quals = inner_soup.find('div', class_='you_bottom_lhs')
         for quality in [q.string for q in quals('strong') if q.string]:
             matches = re.search(r'(.*) (\d+)', quality.string)
