@@ -67,7 +67,7 @@ def main():
 
     # be hella social
     while character.actions > buffer:
-        if (character.qualities['Scandal'] >5 and
+        if (character.qualities['Scandal'] > 5 and
             character.qualities['Fascinating...'] >= 4):
             fix_scandal(character)
 
