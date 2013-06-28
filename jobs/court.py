@@ -58,32 +58,33 @@ def fix_wounds(character):
     character.choose_branch('Make overtures to a cook')
     character.onwards()
 
-character = Character(_settings.AUTH_USER, _settings.AUTH_PASS)
-buffer = character.action_cap - 4
+def main():
+    character = Character(_settings.AUTH_USER, _settings.AUTH_PASS)
+    buffer = character.action_cap - 4
 
-# get to court
-character.travel(areas.EMPRESS_COURT) # doesn't actually work, just refreshes storylets
+    # get to court
+    character.travel(areas.EMPRESS_COURT) # doesn't actually work, just refreshes storylets
 
-# be hella social
-while character.actions > buffer:
-    if (character.qualities['Scandal'] >5 and
-        character.qualities['Fascinating...'] >= 4):
-        fix_scandal(character)
+    # be hella social
+    while character.actions > buffer:
+        if (character.qualities['Scandal'] >5 and
+            character.qualities['Fascinating...'] >= 4):
+            fix_scandal(character)
 
-    if (character.qualities['Wounds'] > 5 and
-        character.qualities['Fascinating...'] >= 5):
-        fix_wounds(character)
+        if (character.qualities['Wounds'] > 5 and
+            character.qualities['Fascinating...'] >= 5):
+            fix_wounds(character)
 
-    elif character.items['Whispered Secret'] < 80000:
-        grind_secrets(character)
+        elif character.items['Whispered Secret'] < 80000:
+            grind_secrets(character)
 
-    elif character.qualities['Scandal'] < 7:
-        grind_clues(character)
+        elif character.qualities['Scandal'] < 7:
+            grind_clues(character)
 
-    elif (character.qualities['Nightmares'] < 7 and
-          character.qualities['Wounds'] < 7):
-        grind_jade_dog(character)
+        elif (character.qualities['Nightmares'] < 7 and
+              character.qualities['Wounds'] < 7):
+            grind_jade_dog(character)
 
-    else:
-        grind_honey(character)
-        #or: grind_jade_youth(character)
+        else:
+            grind_honey(character)
+            #or: grind_jade_youth(character)
