@@ -2,10 +2,23 @@
 
 import _settings
 from london import *
-from . import common
 
 def grind_secrets(character):
     """+83 whispered secrets per action, and conn:soc
+    fail: -fascinating"""
+    character.begin_story('Attend to matters of romance')
+    character.choose_branch('Attend courtly functions')
+    character.onwards()
+
+def grind_clues(character):
+    """+44 cryptic clues per action, and fascinating
+    fail: scandal"""
+    character.begin_story('Attend to matters of romance')
+    character.choose_branch('Take a stroll in the gardens')
+    character.onwards()
+
+def grind_influence(character):
+    """+18 stolen correspondence per action, and conn:soc
     fail: scandal"""
     character.begin_story('Attend to matters of romance')
     character.choose_branch('Write a letter')
@@ -33,12 +46,39 @@ def grind_honey(character):
     character.choose_branch('Join a picnic expedition')
     character.onwards()
 
+def fix_scandal(character):
+    """-2 cp"""
+    character.begin_story('Disporting with the servantry')
+    character.choose_branch('Catch the eye of a butler')
+    character.onwards()
+
+def fix_wounds(character):
+    """-2 to -3 cp"""
+    character.begin_story('Disporting with the servantry')
+    character.choose_branch('Make overtures to a cook')
+    character.onwards()
+
 character = Character(_settings.AUTH_USER, _settings.AUTH_PASS)
 buffer = character.action_cap - 4
 
+# get to court
+character.travel(areas.EMPRESS_COURT) # doesn't actually work, just refreshes storylets
+
+# be hella social
 while character.actions > buffer:
-    if character.qualities['Scandal'] < 7:
+    if (character.qualities['Scandal'] >5 and
+        character.qualities['Fascinating...'] >= 4):
+        fix_scandal(character)
+
+    if (character.qualities['Wounds'] > 5 and
+        character.qualities['Fascinating...'] >= 5):
+        fix_wounds(character)
+
+    elif character.items['Whispered Secret'] < 80000:
         grind_secrets(character)
+
+    elif character.qualities['Scandal'] < 7:
+        grind_clues(character)
 
     elif (character.qualities['Nightmares'] < 7 and
           character.qualities['Wounds'] < 7):
