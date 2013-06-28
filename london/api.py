@@ -126,17 +126,18 @@ class Character:
         match = re.search(r'displayCurrentArea\((\d+)', area_tag.script.string)
         self.location = int(match.group(1))
 
-        self.watchful = eval(outer_soup.find('span', id='infoBarQLevel209').string +
-                             outer_soup.find('span', id='infoBarBonusPenalty209').string)
+        def stat(id):
+            level = outer_soup.find('span', id='infoBarQLevel'+str(id))
+            bonus = outer_soup.find('span', id='infoBarBonusPenalty'+str(id))
+            expression = level.string
+            if bonus.string:
+                expression += bonus.string
+            return eval(expression)
 
-        self.shadowy = eval(outer_soup.find('span', id='infoBarQLevel210').string +
-                            outer_soup.find('span', id='infoBarBonusPenalty210').string)
-
-        self.dangerous = eval(outer_soup.find('span', id='infoBarQLevel211').string +
-                              outer_soup.find('span', id='infoBarBonusPenalty211').string)
-
-        self.persuasive = eval(outer_soup.find('span', id='infoBarQLevel212').string +
-                               outer_soup.find('span', id='infoBarBonusPenalty212').string)
+        self.watchful = stat(209)
+        self.shadowy = stat(210)
+        self.dangerous = stat(211)
+        self.persuasive = stat(212)
 
         self.qualities = defaultdict(int)
         quals = inner_soup.find('div', class_='you_bottom_lhs')
