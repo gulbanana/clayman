@@ -105,7 +105,8 @@ class Character:
         effects = soup.find('div', class_='quality_update_box').find_all('p')
         for tag in effects:
             content = ''.join(tag.strings)
-            print('    {0}'.format(content))
+            if not 'You succeeded' in content:
+                print('    {0}'.format(content))
 
             inner_match = re.match(r'(.+) has (increased|dropped) to (\d+)', content)
             if inner_match:
