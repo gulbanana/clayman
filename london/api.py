@@ -105,8 +105,37 @@ class Character:
         effects = soup.find('div', class_='quality_update_box').find_all('p')
         for tag in effects:
             content = ''.join(tag.strings)
-            if not 'You succeeded' in content:
-                print('    {0}'.format(content))
+            print('    {0}'.format(content))
+
+            inner_match = re.match(r'(.+) has (increased|dropped) to (\d+)', content)
+            if inner_match:
+                qname, qval = inner_match.group(1,3)
+                self.qualities[qname] = int(qval)
+
+            inner_match = re.match(r'An occurrence! Your \'(.+)\' quality is now (\d+)', content)
+            if inner_match:
+                qname, qval = inner_match.group(1,2)
+                self.qualities[qname] = int(qval)
+
+            inner_match = re.match(r'(.+) has been reset', content)
+            if inner_match:
+                qname = inner_match.group(1)
+                self.qualities[qname] = 0
+
+            inner_match = re.match(r'You\'ve (gained|lost) (\d+) x (.+) \(new total (\d+)\)', content)
+            if inner_match:
+                iname, ival = inner_match.group(3,4)
+                self.items[iname] = int(ival)
+
+            inner_match = re.match(r'You now have (\d+) x (.+)', content)
+            if inner_match:
+                iname, ival = inner_match.group(2,1)
+                self.items[iname] = int(ival)
+
+            inner_match = re.match(r'You no longer have any of this: \'(.+)\'', content)
+            if inner_match:
+                iname = inner_match.group(1)
+                self.items[iname] = 0
 
     def _update_status(self):
         outer_html = self.game.get('/Gap/Load', dict(content='/Me'))
