@@ -71,7 +71,7 @@ def main():
             character.qualities['Fascinating...'] >= 4):
             fix_scandal(character)
 
-        if (character.qualities['Wounds'] > 5 and
+        elif (character.qualities['Wounds'] > 5 and
             character.qualities['Fascinating...'] >= 5):
             fix_wounds(character)
 
