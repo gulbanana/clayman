@@ -7,11 +7,11 @@ def init(character):
     with_buffer(character, ai)
 
 def ai(character):
-    if (character.qualities['Scandal'] > 5 and
+    if (character.qualities['Scandal'] > 4 and
         character.qualities['Fascinating...'] >= 4):
         court.fix_scandal(character)
 
-    elif (character.qualities['Wounds'] > 5 and
+    elif (character.qualities['Wounds'] > 4 and
         character.qualities['Fascinating...'] >= 5):
         court.fix_wounds(character)
 
