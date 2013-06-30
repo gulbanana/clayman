@@ -4,7 +4,7 @@ def main():
     with_character(lambda c: with_buffer(c, ai))
 
     def ai(character):
-        # keep 1000 of this around for the presumptuous little oppportunity
+        # keep 1000 of this around for the presumptuous little opportunity
         if (character.persuasive < 85
             and character.items['Greyfields 1882'] < 1000
             and character.qualities['Scandal'] < 7):
