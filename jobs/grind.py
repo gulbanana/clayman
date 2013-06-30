@@ -8,16 +8,19 @@ def main():
         if (character.persuasive < 85
             and character.items['Greyfields 1882'] < 1000
             and character.qualities['Scandal'] < 7):
-            grind.palace_wines(character)
+            grind.greyfields_1882(character)
 
-        # save up for a lodgings
+        # save up for lodgings
         elif character.items['Whispered Secret'] < 80000:
-            grind.veilgarden_secrets(character)
+            grind.whispered_secrets(character)
+
+        elif character.items['Soul'] < 40000:
+            grind.souls(character)
 
         # get money with risk of scandal
         elif character.qualities['Scandal'] < 7:
-            grind.palace_jade(character)
+            grind.jade_watchful(character)
 
         # get money with no risk
         else:
-            grind.veilgarden_clues(character)
+            grind.cryptic_clues(character)
