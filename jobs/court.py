@@ -1,6 +1,4 @@
 # to be used while at the empress' court
-
-import _settings
 from london import *
 from common import *
 
