@@ -45,12 +45,18 @@ def grind_honey(character):
 
 def fix_scandal(character):
     """-2 cp"""
+    if 'Disporting with the servantry' not in character.storylets:
+        character.qualities['Fascinating...'] = 0
+        return
     character.begin_story('Disporting with the servantry')
     character.choose_branch('Catch the eye of a butler')
     character.onwards()
 
 def fix_wounds(character):
     """-2 to -3 cp"""
+    if 'Disporting with the servantry' not in character.storylets:
+        character.qualities['Fascinating...'] = 0
+        return
     character.begin_story('Disporting with the servantry')
     character.choose_branch('Make overtures to a cook')
     character.onwards()
