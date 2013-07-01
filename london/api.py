@@ -48,7 +48,11 @@ class Character:
 
     def begin_story(self, storylet):
         if not isinstance(storylet, numbers.Number):
-            storylet = self.storylets[storylet]
+            try:
+                storylet = self.storylets[storylet]
+            except KeyError:
+                self._debug()
+                raise
 
         html = self.game.post('/Storylet/Begin', {'eventid': storylet})
         soup = bs4.BeautifulSoup(html)
@@ -59,8 +63,12 @@ class Character:
 
     def choose_branch(self, branch, second_chance=False):
         if not isinstance(branch, numbers.Number):
-            print('--> {0}'.format(branch))
-            branch = self.branches[branch]
+            try:
+                branch = self.branches[branch]
+                print('--> {0}'.format(branch))
+            except KeyError:
+                self._debug()
+                raise
 
         html = self.game.post('/Storylet/ChooseBranch', dict(branchid=branch, secondChances=second_chance))
         soup = bs4.BeautifulSoup(html)
@@ -199,3 +207,8 @@ class Character:
         self.name = heading.h1.a.string
         self.description = ' '.join(heading.p.stripped_strings)
         print('{0}: {1}.'.format(self.name, self.description))
+
+    def _debug(self):
+        print('### REST api status at time of error ###')
+        print('# available storylets: ' + repr(self.storylets))
+        print('# available branches: ' + repr(self.branches))
