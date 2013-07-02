@@ -64,8 +64,8 @@ class Character:
     def choose_branch(self, branch, second_chance=False):
         if not isinstance(branch, numbers.Number):
             try:
-                branch = self.branches[branch]
                 print('--> {0}'.format(branch))
+                branch = self.branches[branch]
             except KeyError:
                 self._debug()
                 raise
